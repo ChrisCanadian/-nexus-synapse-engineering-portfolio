@@ -62,13 +62,46 @@ If you only want the current production responsibility chain without the project
 ## Start here
 
 1. **[Current Production Responsibilities](docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md)** — the shortest current-architecture view.
-2. **[Production Evidence Status](docs/PRODUCTION_EVIDENCE_STATUS.md)** — what is production-inspected, isolated, reconstructed, historical, or not demonstrated.
-3. **[Visual Gallery](docs/NEXUS_VISUAL_GALLERY.md)** — Nexus itself, not just the public extracted repos.
-4. **[Public Technical Reference v1.1](docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)** — the full current public-safe technical reference.
+2. **[Nexus Terminology → Conventional Systems Concepts](docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md)** — translates Nexus names into familiar engineering concepts, then states what Nexus actually does differently and what evidence supports the claim.
+3. **[Production Evidence Status](docs/PRODUCTION_EVIDENCE_STATUS.md)** — what is production-inspected, isolated, reconstructed, historical, or not demonstrated.
+4. **[Visual Gallery](docs/NEXUS_VISUAL_GALLERY.md)** — Nexus itself, not just the public extracted repos.
+5. **[Public Technical Reference v1.1](docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)** — the full current public-safe technical reference.
 
 ![Nexus Synapse visual tour](https://drive.google.com/uc?export=view&id=1OM2jeCOqsgvPKtwLNkFtp2cLGchtY7BY)
 
 *Animated Nexus system tour. It is an orientation aid, not a literal runtime trace.*
+
+---
+
+## How to evaluate Nexus terminology
+
+Nexus accumulated its own subsystem names while the architecture evolved. Those names are useful for project history, but **the name itself is not the novelty claim**.
+
+For outside evaluation, use this pattern:
+
+```text
+Nexus term
+    ↓
+closest conventional systems concept
+    ↓
+Nexus-specific responsibility / composition decision
+    ↓
+measured or retained evidence
+```
+
+A few examples:
+
+| Nexus term | Closest conventional concept | The Nexus-specific question |
+|---|---|---|
+| **SSR** | Context assembly / state hydration / context compiler | What eligible operating state should be reconstructed before inference, and who owns that selection? |
+| **CAG** | Session-context cache / rolling continuity buffer | How should bounded conversation continuity feed broader state reconstruction? |
+| **Gauges** | Scalar behavioral/configuration controls | How can behavior intensity persist as runtime state without becoming identity or authority? |
+| **Modes** | Behavioral policy/profile overlay | How can a temporary role alter behavior without replacing durable identity or granting execution rights? |
+| **Senate** | Multi-agent / ensemble advisory | How can deliberation contribute context while remaining subordinate to runtime authority? |
+| **Thinker** | Background worker / reflection daemon | Which cognition/maintenance responsibilities can run outside the immediate model call, and is that path actually active? |
+| **Tool/capability execution** | Command dispatcher / capability gateway / authorization middleware | How do proposal, scope, authority, execution, evidence, and narration stay separate? |
+
+The full translation — including current caveats for Dyad/nodes, reflections, self-model, continuity, memory, Senate, and Thinker — is in **[Nexus Terminology → Conventional Systems Concepts](docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md)**.
 
 ---
 
@@ -91,7 +124,7 @@ The private Nexus runtime is large enough that publishing a sanitized copy would
 
 > **What exactly is the public code supposed to demonstrate?**
 
-Instead, I publish **bounded public proof surfaces from a private runtime**.
+Instead, I publish **bounded public proof/reference surfaces from a private runtime**.
 
 ```text
 private parent runtime
@@ -116,8 +149,11 @@ These artifacts are not fragments that combine to recreate Nexus. Each is a boun
 | [**Nexus Proof Runtime**](https://github.com/ChrisCanadian/nexus-proof-runtime) | Authorization → execution → receipt/artifact → claim verification | Not the private Nexus conversation runtime, memory system, or production tool path |
 | [**Live Runtime Acceptance Rig**](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig) | Exercise a real boundary and check durable effects instead of trusting narration | Not a Nexus subsystem or whole-system certification framework |
 | [**Nexus Mode Card Creator**](https://github.com/ChrisCanadian/nexus-mode-card-creator) | Fuzzy behavioral intent → guided authoring → human confirmation → portable profile | Does not expose mode activation, weighting, persistence, identity composition, or private SSR integration |
+| [**Nexus Memory Kernel**](https://github.com/ChrisCanadian/Nexus-Memory-Kernel) | Scoped persistent memory → recall/correction/supersession → provenance + bounded memory-capability execution | Does not expose production schemas/queries, private memory eligibility/SSR composition, or the general-purpose Nexus executor |
 | [**Early SSR / warehouse-style RAG gist**](https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752) | Historical SQL-guided narrowing before semantic ranking | Not the current SSR implementation |
 | [**Nexus Synapse Research Library**](https://sites.google.com/view/nexus-synapse-research-library/home) | Longer-form architecture, research, history, and evaluation material | Not production source code |
+
+The Memory Kernel has its own portfolio case study: **[Nexus Memory Kernel](case-studies/memory-kernel.md)**.
 
 ---
 
@@ -127,9 +163,11 @@ In current portfolio documentation, **SSR means Structured State Reconstruction*
 
 At a public-safe level, SSR is the runtime responsibility that reconstructs a bounded operating context from eligible state before inference. That can include identity/profile state, gauges, mode, user rules, learned preferences, selected continuity/memory, reflections, tool/capability facts, and optional advisory context.
 
+In conventional systems language, the closest category is **context assembly / state hydration / context compilation**. What matters in Nexus is the responsibility boundary: the runtime owns eligibility and composition rather than expecting the generator to reconstruct trustworthy system state by itself.
+
 Earlier Nexus documents used `SSR` in several related ways. One important historical ancestor used structured/SQL filtering to narrow memory candidates before semantic ranking. Those earlier meanings remain part of the engineering history, but they are not the default current expansion.
 
-See the [Glossary](docs/GLOSSARY.md) for the terminology trail.
+See the [Glossary](docs/GLOSSARY.md) and [conventional-systems map](docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md) for the terminology trail.
 
 ---
 
@@ -237,16 +275,17 @@ More: [`ABOUT_CHRIS.md`](ABOUT_CHRIS.md)
 ## Recommended reading order
 
 1. [`docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md`](docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md)
-2. [`docs/PRODUCTION_EVIDENCE_STATUS.md`](docs/PRODUCTION_EVIDENCE_STATUS.md)
-3. [`docs/NEXUS_VISUAL_GALLERY.md`](docs/NEXUS_VISUAL_GALLERY.md)
-4. [`docs/NEXUS_OVERVIEW.md`](docs/NEXUS_OVERVIEW.md)
-5. [`docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md`](docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)
-6. [`docs/ARCHITECTURAL_EVOLUTION.md`](docs/ARCHITECTURAL_EVOLUTION.md)
-7. [`docs/VERIFICATION_AND_EVIDENCE.md`](docs/VERIFICATION_AND_EVIDENCE.md)
-8. [`docs/REPOSITORY_MAP.md`](docs/REPOSITORY_MAP.md)
-9. [`case-studies/`](case-studies/)
-10. [`docs/GLOSSARY.md`](docs/GLOSSARY.md)
-11. [`evidence/claims-and-evidence.json`](evidence/claims-and-evidence.json)
+2. [`docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md`](docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md)
+3. [`docs/PRODUCTION_EVIDENCE_STATUS.md`](docs/PRODUCTION_EVIDENCE_STATUS.md)
+4. [`docs/NEXUS_VISUAL_GALLERY.md`](docs/NEXUS_VISUAL_GALLERY.md)
+5. [`docs/NEXUS_OVERVIEW.md`](docs/NEXUS_OVERVIEW.md)
+6. [`docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md`](docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)
+7. [`docs/ARCHITECTURAL_EVOLUTION.md`](docs/ARCHITECTURAL_EVOLUTION.md)
+8. [`docs/VERIFICATION_AND_EVIDENCE.md`](docs/VERIFICATION_AND_EVIDENCE.md)
+9. [`docs/REPOSITORY_MAP.md`](docs/REPOSITORY_MAP.md)
+10. [`case-studies/`](case-studies/) — including the [Memory Kernel case study](case-studies/memory-kernel.md)
+11. [`docs/GLOSSARY.md`](docs/GLOSSARY.md)
+12. [`evidence/claims-and-evidence.json`](evidence/claims-and-evidence.json)
 
 ---
 
@@ -259,14 +298,15 @@ This portfolio does **not** claim:
 - that every implemented subsystem is fully tested;
 - independent certification of the private runtime;
 - that isolated V5 reconstruction work is automatically the accepted production path;
-- that the public Proof Runtime or Acceptance Rig reproduces the private parent system;
+- that the public Proof Runtime, Memory Kernel, or Acceptance Rig reproduces the private parent system;
 - that public artifacts are complete representations of Nexus Synapse;
 - that receipt/hash verification establishes semantic truth;
-- that Nexus invented memory, RAG, tool use, agent frameworks, or context engineering.
+- that Nexus invented memory, RAG, tool use, agent frameworks, multi-agent debate, authorization middleware, background workers, behavioral configuration, or context engineering;
+- that a Nexus subsystem name is a novelty claim by itself.
 
 The point is narrower:
 
-**document the architecture I built, show how it evolved, publish inspectable pieces where appropriate, and attach claims to the strongest evidence I actually have.**
+**document the architecture I built, translate its project vocabulary into terms outside engineers can evaluate, show how it evolved, publish inspectable pieces where appropriate, and attach claims to the strongest evidence I actually have.**
 
 ---
 
@@ -276,6 +316,7 @@ The point is narrower:
 - [Nexus Proof Runtime](https://github.com/ChrisCanadian/nexus-proof-runtime)
 - [Live Runtime Acceptance Rig](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig)
 - [Nexus Mode Card Creator](https://github.com/ChrisCanadian/nexus-mode-card-creator)
+- [Nexus Memory Kernel](https://github.com/ChrisCanadian/Nexus-Memory-Kernel)
 - [Historical SSR gist](https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752)
 - [Christopher Campbell on GitHub](https://github.com/ChrisCanadian)
 

@@ -9,6 +9,7 @@ This page explains how the public Nexus-related artifacts fit together without i
 | [Nexus Proof Runtime](https://github.com/ChrisCanadian/nexus-proof-runtime) | Receipt-backed execution/evidence reference kernel | Extracts a mature control principle into a standalone public project | Implemented and tested as its own repository | Does not establish the full production Nexus execution path |
 | [Live Runtime Acceptance Rig](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig) | Safe real-boundary acceptance framework with durable readback and evidence bundles | Encodes the verification discipline that emerged during Nexus development | Implemented and tested as its own repository | Does not certify Nexus or replace system-specific acceptance work |
 | [Nexus Mode Card Creator](https://github.com/ChrisCanadian/nexus-mode-card-creator) | Guided conversion of fuzzy behavioral intent into a portable Mode Card | Bounded extraction of behavioral-mode authoring work | Released public artifact; automated suite covers the bounded creator contract | Does not expose activation, weighting, persistence, SSR integration, or identity composition |
+| [Nexus Memory Kernel](https://github.com/ChrisCanadian/Nexus-Memory-Kernel) | Scoped persistent memory, recall, correction/supersession, provenance, and memory-capability execution | Bounded reference extraction of memory responsibility and authority patterns | v0.1.0 public implementation; capability, isolation, persistence, temporal, and semantic-scope tests; publication CI passed Python 3.10–3.13 | Does not expose private production schemas/queries, SSR memory eligibility/composition, or the general-purpose Nexus execution layer |
 | [Historical SSR gist](https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752) | Historical Structured-SQL-RAG / warehouse-style context-selection demonstration | Early ancestor of later SSR/context reconstruction | Historical benchmark and trace material retained | Not current SSR and not evidence for every later Nexus retrieval claim |
 | [Nexus Synapse Research Library](https://sites.google.com/view/nexus-synapse-research-library/home) | Long-form public research and architecture narrative | Documentation/research surface | Documented public material | Not production source code |
 | [Public Technical Reference v1.1](https://drive.google.com/file/d/1KWoHkrHek5o_3T-FGKK7qLbRgb9Oi19N/view) | Current public-safe responsibility map and evidence ceiling | Portfolio + Research Library technical reference | Reconciled to August 14 deployed-code/read-only-state audit; July execution kept as dated evidence | Not production source, not a replication guide, and not a claim that every coded subsystem is active |
@@ -36,9 +37,9 @@ That approach keeps each artifact falsifiable and easier to review.
 
 ### Reference kernel
 
-A deliberately small executable implementation of one architectural control pattern.
+A deliberately small executable implementation of one architectural control/responsibility pattern.
 
-**Example:** Nexus Proof Runtime.
+**Examples:** Nexus Proof Runtime and Nexus Memory Kernel.
 
 ### Acceptance framework
 
@@ -60,7 +61,7 @@ A retained earlier implementation or benchmark that shows lineage, not current a
 
 ### Research/documentation surface
 
-Narrative, diagrams, glossary, and evaluation material for understanding the architecture.
+Narrative, diagrams, glossary, terminology translation, and evaluation material for understanding the architecture.
 
 **Examples:** Research Library and this portfolio.
 
@@ -69,3 +70,5 @@ Narrative, diagrams, glossary, and evaluation material for understanding the arc
 These artifacts are architecturally related by lineage and design philosophy.
 
 They are **not** presented as a set of public modules that can be assembled into the private Nexus Synapse runtime.
+
+For readers coming from conventional software/AI systems terminology, see [Nexus Terminology → Conventional Systems Concepts](NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md).
