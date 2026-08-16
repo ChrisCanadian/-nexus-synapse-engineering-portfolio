@@ -4,22 +4,15 @@ Terms in this project changed meaning over time. This glossary records reconcile
 
 ## SSR
 
-**Observed expansions**
+**Current canonical meaning:** **Structured State Reconstruction**.
 
-- Semantic SQL Retrieval
-- Structured-SQL-RAG
-- SQL-guided RAG
-- SSR personality engine
-- SSR prompt builder
+For current architecture claims, SSR refers to the runtime responsibility that reconstructs a bounded operating context from eligible state before inference. At a public-safe level, that can include identity/profile data, gauges, active mode, user rules, learned preferences, selected continuity/memory, reflections, tool/capability facts, and optional advisory context.
 
-**Reconciled usage**
+**Historical terminology:** Earlier Nexus documents used the acronym in several related but different ways, including Semantic SQL Retrieval, Structured-SQL-RAG, SQL-guided RAG, SSR personality engine, and SSR prompt builder. Those terms are preserved as historical source language rather than treated as the current expansion.
 
-- **SSR retrieval method:** structured filtering/scoping before semantic ranking.
-- **SSR runtime/prompt family:** the larger machinery that assembles identity, preferences, capabilities, tools, memory, and context for generation.
+**Retrieval lineage:** One important early SSR ancestor used structured/SQL filtering to narrow candidates before semantic ranking. That retrieval pattern is historically significant, but **SSR does not currently mean vector search**, and not every SSR path implies an embedding stage.
 
-**Drift risk:** High.
-
-Do not infer vector search from every use of `SSR`; some paths use structured lookup and formatting without an active vector stage.
+**Drift risk:** High in historical material; low when using the current canonical expansion above.
 
 ## CAG
 
