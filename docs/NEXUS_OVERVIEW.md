@@ -84,14 +84,13 @@ That through-line is more important than any one component name.
 
 ## SSR in the larger picture
 
-SSR has had multiple meanings during the project's history.
+For current portfolio documentation, **SSR means Structured State Reconstruction**.
 
-For public communication:
+At a public-safe level, SSR is the runtime responsibility that reconstructs a bounded operating context before inference from eligible identity/profile state, gauges, modes, rules, learned preferences, continuity/memory, reflection context, tool/capability facts, and optional advisory input.
 
-- **SSR retrieval method** refers to structured filtering/scoping before semantic ranking.
-- **SSR runtime/prompt family** refers more broadly to the machinery that assembles identity, preferences, capabilities, tools, memory, and context for generation.
+Earlier project documents used `SSR` in several related ways, including retrieval-oriented terminology. One important historical ancestor used structured filtering/scoping before semantic ranking. The [Glossary](GLOSSARY.md) preserves that terminology drift without making the historical expansions the current definition.
 
-Not every historical use of `SSR` implies active vector search. The glossary preserves those distinctions.
+Not every SSR path implies active vector search.
 
 ## Public versus private
 
@@ -111,13 +110,16 @@ See [PUBLIC_BOUNDARY.md](../PUBLIC_BOUNDARY.md).
 
 For the current responsibility-level architecture, deployed-state corrections, and explicit evidence ceiling, see:
 
-- [Public Technical Reference v1.1 (PDF)](https://drive.google.com/file/d/1KWoHkrHek5o_3T-FGKK7qLbRgb9Oi19N/view)
-- [Public Technical Reference v1.1 (Markdown)](reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)
+- [Public Technical Reference v1.1 — canonical Markdown](reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)
+- [Public Technical Reference v1.1 — rendered PDF](https://drive.google.com/file/d/1KWoHkrHek5o_3T-FGKK7qLbRgb9Oi19N/view)
 
 The reference distinguishes the August 14, 2026 deployed-code/read-only-state audit from older isolated execution receipts.
 
 ## Continue reading
 
+- [Current Production Responsibilities](CURRENT_PRODUCTION_RESPONSIBILITIES.md)
+- [Production Evidence Status](PRODUCTION_EVIDENCE_STATUS.md)
+- [Visual Gallery](NEXUS_VISUAL_GALLERY.md)
 - [Architectural Evolution](ARCHITECTURAL_EVOLUTION.md)
 - [Verification and Evidence](VERIFICATION_AND_EVIDENCE.md)
 - [Repository Map](REPOSITORY_MAP.md)
