@@ -1,5 +1,5 @@
 {
-  "portfolio_version": "0.1",
+  "portfolio_version": "0.2",
   "generated_from_public_safe_material": true,
   "evidence_states": {
     "IMPLEMENTED": "Source code and call-site evidence exist; not necessarily deployed.",
@@ -17,6 +17,15 @@
         "README.md",
         "PUBLIC_BOUNDARY.md",
         "docs/REPOSITORY_MAP.md"
+      ]
+    },
+    {
+      "id": "portfolio.terminology_translation",
+      "claim": "Nexus subsystem names are project vocabulary rather than novelty evidence by themselves; the portfolio maps them to closest conventional systems concepts and separates that mapping from Nexus-specific composition/authority decisions.",
+      "evidence_state": "DOCUMENTED",
+      "sources": [
+        "docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md",
+        "docs/GLOSSARY.md"
       ]
     },
     {
@@ -44,6 +53,16 @@
       "sources": [
         "https://github.com/ChrisCanadian/nexus-mode-card-creator",
         "case-studies/mode-card-creator.md"
+      ]
+    },
+    {
+      "id": "memory_kernel.reference_boundary",
+      "claim": "Nexus Memory Kernel is a standalone bounded reference implementation for scoped persistence, recall, correction/supersession, provenance, and memory-capability execution; it does not expose the private production memory/query or general-purpose execution layers.",
+      "evidence_state": "TESTED",
+      "claim_ceiling": "Public kernel behavior only; not current production Nexus memory behavior or private SSR memory selection/composition.",
+      "sources": [
+        "https://github.com/ChrisCanadian/Nexus-Memory-Kernel",
+        "case-studies/memory-kernel.md"
       ]
     },
     {
