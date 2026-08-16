@@ -1,0 +1,79 @@
+{
+  "portfolio_version": "0.1",
+  "generated_from_public_safe_material": true,
+  "evidence_states": {
+    "IMPLEMENTED": "Source code and call-site evidence exist; not necessarily deployed.",
+    "TESTED": "Exercised by retained test, benchmark, CI run, smoke, audit, or acceptance artifact.",
+    "DOCUMENTED": "Design or plan is documented without sufficient implementation evidence at the stated date.",
+    "ARCHIVED_SUPERSEDED": "Path existed but is replaced, disabled, or no longer authoritative.",
+    "LINEAGE_INFERRED": "Relationship is reconstructed across sources rather than explicitly stated contemporaneously."
+  },
+  "claims": [
+    {
+      "id": "portfolio.private_parent",
+      "claim": "Nexus Synapse is the private parent runtime; the public repositories are bounded reference/evidence surfaces rather than a public reconstruction kit.",
+      "evidence_state": "DOCUMENTED",
+      "sources": [
+        "README.md",
+        "PUBLIC_BOUNDARY.md",
+        "docs/REPOSITORY_MAP.md"
+      ]
+    },
+    {
+      "id": "proof.reference_kernel",
+      "claim": "Nexus Proof Runtime is a standalone receipt-backed execution/evidence reference kernel, not a production Nexus subsystem.",
+      "evidence_state": "TESTED",
+      "sources": [
+        "https://github.com/ChrisCanadian/nexus-proof-runtime",
+        "case-studies/proof-runtime.md"
+      ]
+    },
+    {
+      "id": "rig.acceptance_framework",
+      "claim": "Live Runtime Acceptance Rig is a reusable live-boundary acceptance framework with durable readback and retained evidence, not a Nexus subsystem.",
+      "evidence_state": "TESTED",
+      "sources": [
+        "https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig",
+        "case-studies/acceptance-rig.md"
+      ]
+    },
+    {
+      "id": "mode_card.authoring_boundary",
+      "claim": "Nexus Mode Card Creator exposes behavioral-profile authoring while intentionally excluding private activation, weighting, persistence, and runtime integration.",
+      "evidence_state": "TESTED",
+      "sources": [
+        "https://github.com/ChrisCanadian/nexus-mode-card-creator",
+        "case-studies/mode-card-creator.md"
+      ]
+    },
+    {
+      "id": "ssr.historical_lineage",
+      "claim": "Historical SSR work used structured SQL filtering/scoping before selective context injection and is an ancestor of broader later context reconstruction.",
+      "evidence_state": "TESTED",
+      "claim_ceiling": "Historical benchmark/lineage only; not current private SSR performance.",
+      "sources": [
+        "https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752",
+        "case-studies/ssr-v1-warehouse-rag.md"
+      ]
+    },
+    {
+      "id": "technical_reference.current_state",
+      "claim": "The Public Technical Reference v1.1 separates current deployed-code/read-only-state findings from older isolated execution receipts and reflects the August 14, 2026 production-state audit at a public-safe responsibility level.",
+      "evidence_state": "TESTED",
+      "claim_ceiling": "Current-state code/data inspection plus dated execution evidence; not independent certification or full production E2E execution.",
+      "sources": [
+        "https://drive.google.com/file/d/1KWoHkrHek5o_3T-FGKK7qLbRgb9Oi19N/view",
+        "docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md"
+      ]
+    },
+    {
+      "id": "v5.isolated_reconstruction",
+      "claim": "The V5 line described in the public evolution record is an isolated reconstruction with substantial implementation/testing evidence, not a production V5 release.",
+      "evidence_state": "TESTED",
+      "sources": [
+        "docs/ARCHITECTURAL_EVOLUTION.md",
+        "docs/GLOSSARY.md"
+      ]
+    }
+  ]
+}
