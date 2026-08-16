@@ -41,6 +41,7 @@ For example:
 - **Nexus Proof Runtime** demonstrates a receipt-backed authorization/execution/evidence pattern.
 - **Live Runtime Acceptance Rig** demonstrates safe live-boundary acceptance and evidence retention.
 - **Nexus Mode Card Creator** demonstrates bounded behavioral-profile authoring.
+- **Nexus Memory Kernel** demonstrates scoped persistent memory, temporal recall, correction/supersession, provenance, and bounded memory-capability execution. It does **not** expose private memory-selection logic, SSR composition, production schemas/query logic, or the private general-purpose capability executor.
 - The historical SSR gist demonstrates an early SQL-guided context-selection approach.
 
 Each artifact has its own public boundary and claim ceiling.
