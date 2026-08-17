@@ -40,11 +40,13 @@ The early SSR work, for example, used a warehouse-style idea: do not send the wo
 
 ## The accidental beginning
 
-In August 2025, I was using GPT to help me build a custom OBS overlay for streaming Rocket League.
+The canonical origin is simpler — and stranger — than the architecture that followed.
 
-As that project grew, I kept running into the same frustrations: memory and continuity disappeared, tool use was constrained, and prompt/context limits kept forcing me to rebuild information the model had already seen.
+In August 2025, my son wanted to watch me stream games. That is what started the side project: I began building a custom OBS overlay for streaming Rocket League, using GPT to help me write the code.
 
-Instead of continuing to work around those limits, I asked:
+As the overlay project grew, I kept running into the same frustrations in the AI-assisted workflow: memory and continuity disappeared, tool use was constrained, and prompt/context limits kept forcing me to rebuild information the model had already seen.
+
+Instead of continuing to work around those limits, I eventually asked:
 
 > **How would you start building an AI?**
 

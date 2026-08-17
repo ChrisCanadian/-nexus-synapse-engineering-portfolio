@@ -6,6 +6,18 @@ This page adapts the existing **public-safe Architectural Epochs** document into
 
 *Public evolution map showing concurrent research arcs and subsystem development. It is an architectural synthesis, not a literal deployment topology.*
 
+## Before Epoch A — the stream-overlay side project
+
+Nexus did not begin as an AI-runtime project.
+
+In August 2025, Chris's son wanted to watch him stream games. That prompted a custom OBS overlay project for streaming Rocket League, built with GPT assisting the implementation. Repeated friction around memory/continuity, context limits, and constrained tool use changed the question from "how do I finish this overlay?" to:
+
+> **How would you start building an AI?**
+
+On August 19, 2025, `bootstrap.py` was created. That is the concrete start of the code lineage that became Nexus Synapse.
+
+The overlay itself remained unfinished.
+
 ## Epoch A — ChrisAI bootstrap (Aug–Sep 2025)
 
 **Problem:** Can a single integrated engine provide personalized assistance with memory, learning, and multimodal capabilities?

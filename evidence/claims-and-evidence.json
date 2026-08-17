@@ -67,23 +67,36 @@
     },
     {
       "id": "validation.blackbox_gateway",
-      "claim": "Nexus Black-Box Validation Gateway is a standalone public challenge surface for opaque targets with BYO OpenAI-compatible inference handoff, public artifact submission, sanitized evidence envelopes, and challenge execution.",
+      "claim": "Nexus Black-Box Validation Gateway v0.2 is a standalone public challenge surface for opaque targets with BYO OpenAI-compatible inference handoff, public artifact submission, evaluator-authored challenge contracts, the nexus-blackbox-core-v1 suite, router-use verification, and sanitized evidence envelopes.",
       "evidence_state": "TESTED",
-      "claim_ceiling": "Public gateway behavior only; not evidence that current production Nexus has been challenged until a private production-facing adapter/tenant is connected and exercised.",
+      "claim_ceiling": "Public gateway behavior only; not evidence that deployed Nexus has passed those challenges until a retained private-target campaign is executed.",
       "sources": [
         "https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway",
         "case-studies/blackbox-validation-and-byo-router.md",
-        "docs/PRODUCTION_EVIDENCE_STATUS.md"
+        "docs/PRODUCTION_EVIDENCE_STATUS.md",
+        "evidence/SANITIZED_EVIDENCE_RECEIPTS.md"
       ]
     },
     {
       "id": "router.openai_compatible_byo",
-      "claim": "OpenAI-compatible Router is reusable standalone infrastructure for short-lived BYO provider routing, model locking, streaming, tools pass-through, route lifecycle controls, SSRF protection, and secret-safe failures without embedding Nexus-specific runtime logic.",
+      "claim": "OpenAI-compatible Router v0.2 is reusable standalone infrastructure for short-lived BYO provider routing, model locking, streaming, tools pass-through, route lifecycle controls, SSRF protection, secret-safe failures, and secret-free usage readback without embedding Nexus-specific runtime logic.",
       "evidence_state": "TESTED",
-      "claim_ceiling": "Standalone router behavior only; not evidence of private Nexus routing policy, runtime composition, or production integration.",
+      "claim_ceiling": "Standalone router behavior only; not evidence of private Nexus routing policy, runtime composition, or deployed integration.",
       "sources": [
         "https://github.com/ChrisCanadian/OpenAI-compatible-router",
-        "case-studies/blackbox-validation-and-byo-router.md"
+        "case-studies/blackbox-validation-and-byo-router.md",
+        "evidence/SANITIZED_EVIDENCE_RECEIPTS.md"
+      ]
+    },
+    {
+      "id": "validation.private_target_candidate",
+      "claim": "A private Nexus validation-target integration candidate has been implemented and exercised by isolated integration CI against the black-box contract.",
+      "evidence_state": "TESTED",
+      "claim_ceiling": "Integration-candidate evidence only; no retained deployed-target campaign, challenge-suite pass, model-swap parity result, or independent certification is claimed.",
+      "sources": [
+        "case-studies/blackbox-validation-and-byo-router.md",
+        "docs/PRODUCTION_EVIDENCE_STATUS.md",
+        "evidence/SANITIZED_EVIDENCE_RECEIPTS.md"
       ]
     },
     {
