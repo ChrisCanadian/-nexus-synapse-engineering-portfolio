@@ -1,8 +1,26 @@
 # Nexus Synapse — Overview
 
-## The core idea
+## The core idea in plain English
 
-Nexus Synapse started as a personalized AI assistant and evolved into a **state-conditioned, policy-bearing LLM orchestration runtime**.
+Nexus Synapse started as a personalized AI assistant and evolved into a runtime around replaceable language models.
+
+The easiest way to understand the project is to start with a familiar systems idea:
+
+> **Do not make one worker carry the entire operating environment in their head.**
+
+Real work is supported by state, history, procedures, permissions, tools, approvals, handoffs, corrections, and evidence. Nexus applies that same responsibility-first thinking around model inference.
+
+The language model can interpret, reason, propose, and communicate. The surrounding runtime is responsible for deciding what context is eligible, what authority exists, what actions are allowed, what should persist, and what evidence supports a consequential claim.
+
+That is the practical meaning behind:
+
+> **The model is not the system.**
+
+If you come from operations, manufacturing, logistics, quality, healthcare, finance, legal, research, or another specialized field, start with [Nexus Synapse for Domain Experts](DOMAIN_EXPERT_ORIENTATION.md).
+
+## The engineering definition
+
+Nexus Synapse is a **state-conditioned, policy-bearing LLM orchestration and continuity runtime**.
 
 The central design idea is:
 
@@ -21,6 +39,13 @@ In Nexus, responsibilities that are often left implicit in model behavior are in
 - testing and verification are treated as part of the architecture.
 
 The language model remains important for generation, interpretation, and some analysis. It does not own authentication, trusted user scope, durable persistence, tool authorization, or post-generation verification.
+
+For a domain reader, that can be translated more simply:
+
+- **history is not the same as current state;**
+- **access is not the same as authority;**
+- **a recommendation is not the same as an executed action;**
+- **a statement that work completed is not the same as evidence that it completed.**
 
 ## Current high-level model
 
@@ -55,6 +80,21 @@ This diagram is intentionally high level. The public portfolio does not disclose
 
 *Public conceptual synthesis of the shift toward explicit runtime oversight. It should not be read as a literal current deployment graph or a claim that every illustrated lane is active on every turn.*
 
+## The six public repositories
+
+The private Nexus runtime is not published. Instead, six bounded repositories expose selected engineering responsibilities:
+
+| Repository | Plain-language problem |
+|---|---|
+| [Nexus Proof Runtime](https://github.com/ChrisCanadian/nexus-proof-runtime) | Do not let an AI's statement that something happened count as proof that it happened. |
+| [Live Runtime Acceptance Rig](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig) | Test the real target and durable effect, not just whether a test script returned success. |
+| [Nexus Mode Card Creator](https://github.com/ChrisCanadian/nexus-mode-card-creator) | Turn desired AI behavior into a reusable profile without confusing behavior with authority. |
+| [Nexus Memory Kernel](https://github.com/ChrisCanadian/Nexus-Memory-Kernel) | Make memory scoped, correctable, traceable, and persistent rather than simply "remember everything." |
+| [Nexus Black-Box Validation Gateway](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway) | Let outsiders challenge a closed runtime without publishing the private implementation. |
+| [OpenAI-compatible Router](https://github.com/ChrisCanadian/OpenAI-compatible-router) | Let model/provider transport change without rebuilding the surrounding application. |
+
+For the formal evidence status and claim ceiling of each repository, see the [Repository Map](REPOSITORY_MAP.md).
+
 ## How it evolved
 
 The architecture did not emerge as a clean formal `V1 → V5` product-release sequence.
@@ -88,6 +128,8 @@ For current portfolio documentation, **SSR means Structured State Reconstruction
 
 At a public-safe level, SSR is the runtime responsibility that reconstructs a bounded operating context before inference from eligible identity/profile state, gauges, modes, rules, learned preferences, continuity/memory, reflection context, tool/capability facts, and optional advisory input.
 
+In domain language, the closest analogy is not "give the worker the whole warehouse." It is **stage the right material, instructions, and state for the current job**.
+
 Earlier project documents used `SSR` in several related ways, including retrieval-oriented terminology. One important historical ancestor used structured filtering/scoping before semantic ranking. The [Glossary](GLOSSARY.md) preserves that terminology drift without making the historical expansions the current definition.
 
 Not every SSR path implies active vector search.
@@ -117,10 +159,18 @@ The reference distinguishes the August 14, 2026 deployed-code/read-only-state au
 
 ## Continue reading
 
-- [Current Production Responsibilities](CURRENT_PRODUCTION_RESPONSIBILITIES.md)
-- [Production Evidence Status](PRODUCTION_EVIDENCE_STATUS.md)
+### Domain / operations readers
+
+- [Nexus Synapse for Domain Experts](DOMAIN_EXPERT_ORIENTATION.md)
 - [Visual Gallery](NEXUS_VISUAL_GALLERY.md)
+- [Repository Map](REPOSITORY_MAP.md)
 - [Architectural Evolution](ARCHITECTURAL_EVOLUTION.md)
 - [Verification and Evidence](VERIFICATION_AND_EVIDENCE.md)
-- [Repository Map](REPOSITORY_MAP.md)
+
+### AI / software / systems readers
+
+- [Current Production Responsibilities](CURRENT_PRODUCTION_RESPONSIBILITIES.md)
+- [Nexus Terminology → Conventional Systems Concepts](NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md)
+- [Production Evidence Status](PRODUCTION_EVIDENCE_STATUS.md)
+- [Public Technical Reference v1.1](reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)
 - [Glossary](GLOSSARY.md)
