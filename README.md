@@ -25,13 +25,34 @@ The Rocket League overlay is still unfinished.
 
 ---
 
-## What Nexus Synapse became
+## What Nexus Synapse became — in plain English
+
+A useful operating system does not expect one worker to remember every rule, every past event, every permission, every exception, every available tool, and every piece of evidence needed to prove the work happened.
+
+The environment around the worker carries much of that responsibility.
+
+Nexus applies a similar systems idea around a language model.
+
+The model can interpret, reason, propose, and communicate. The surrounding runtime is responsible for things such as:
+
+- who the current user/session is;
+- what history and current state are relevant now;
+- which rules and behavioral settings apply;
+- which tools or actions are actually permitted;
+- what should persist after the turn;
+- what evidence supports a claim that something happened.
+
+That is what I mean when I say:
+
+> **The model is not the system.**
+
+The analogy is not meant to treat an LLM as literally equivalent to a human worker. It is a way to make the responsibility split understandable using familiar systems thinking.
+
+### The engineering definition
 
 **Nexus Synapse is a continuity runtime that prepares, governs, extends, and preserves the operating environment around interchangeable model inference.**
 
-The language model performs inference inside that environment. The runtime owns the surrounding responsibilities.
-
-At a high level:
+At a public-safe level:
 
 ```text
 authenticated request
@@ -53,23 +74,59 @@ persistence + adaptation + evidence
 response
 ```
 
-If you only want the current production responsibility chain without the project's historical terminology, start here:
-
-**[Current Production Responsibilities — two-minute orientation](docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md)**
+If you only want the current production responsibility chain without the project's historical terminology, use **[Current Production Responsibilities — two-minute orientation](docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md)**.
 
 ---
 
-## Start here
+## Choose your entry point
 
-1. **[Current Production Responsibilities](docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md)** — the shortest current-architecture view.
-2. **[Nexus Terminology → Conventional Systems Concepts](docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md)** — translates Nexus names into familiar engineering concepts, then states what Nexus actually does differently and what evidence supports the claim.
+### I come from operations, manufacturing, logistics, quality, healthcare, finance, legal, research, or another domain
+
+Start with **[Nexus Synapse for Domain Experts](docs/DOMAIN_EXPERT_ORIENTATION.md)**.
+
+It explains the architecture through familiar ideas such as state, work instructions, permissions, handoffs, corrections, tools, approvals, traceability, and proof of completion before introducing Nexus terminology.
+
+A useful question for this path is:
+
+> **How do we make AI operate inside the rules, history, authority, and evidence requirements of real work?**
+
+### I come from AI, software, systems engineering, or architecture
+
+Start with:
+
+1. **[Current Production Responsibilities](docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md)** — shortest current-architecture view.
+2. **[Nexus Terminology → Conventional Systems Concepts](docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md)** — translates project terms into conventional engineering concepts.
 3. **[Production Evidence Status](docs/PRODUCTION_EVIDENCE_STATUS.md)** — what is production-inspected, isolated, reconstructed, historical, or not demonstrated.
-4. **[Visual Gallery](docs/NEXUS_VISUAL_GALLERY.md)** — Nexus itself, not just the public extracted repos.
-5. **[Public Technical Reference v1.1](docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)** — the full current public-safe technical reference.
+4. **[Public Technical Reference v1.1](docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)** — full current public-safe technical reference.
+
+### I mostly want to see the system
+
+Start with the **[Visual Gallery](docs/NEXUS_VISUAL_GALLERY.md)**.
 
 ![Nexus Synapse visual tour](https://drive.google.com/uc?export=view&id=1OM2jeCOqsgvPKtwLNkFtp2cLGchtY7BY)
 
 *Animated Nexus system tour. It is an orientation aid, not a literal runtime trace.*
+
+---
+
+## Six public repositories
+
+Nexus Synapse itself remains private. These six repositories expose bounded, inspectable responsibilities and validation surfaces from the larger body of work.
+
+| Repository | In plain English | Engineering view |
+|---|---|---|
+| [**Nexus Proof Runtime**](https://github.com/ChrisCanadian/nexus-proof-runtime) | An AI saying "I did it" should not count as proof that the action actually happened. | Authorization → execution → receipt/artifact → claim verification. |
+| [**Live Runtime Acceptance Rig**](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig) | A test returning "success" is not enough if the real target did not actually change. | Exercise a real boundary, verify durable effects, retain reviewable evidence. |
+| [**Nexus Mode Card Creator**](https://github.com/ChrisCanadian/nexus-mode-card-creator) | Turn how you want an AI to behave into a reusable profile without pretending the profile grants system authority. | Guided authoring → clarification → human confirmation → portable behavioral artifact. |
+| [**Nexus Memory Kernel**](https://github.com/ChrisCanadian/Nexus-Memory-Kernel) | Useful memory needs scope, corrections, history, and provenance — not just "remember everything." | Scoped persistence → recall → correction/supersession → provenance → bounded memory capabilities. |
+| [**Nexus Black-Box Validation Gateway**](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway) | Let outsiders challenge a closed runtime without giving them the private runtime. | Public challenge contracts → opaque target → sanitized observable evidence. |
+| [**OpenAI-compatible Router**](https://github.com/ChrisCanadian/OpenAI-compatible-router) | Change or supply the model/provider without rebuilding the application around it. | Reusable OpenAI-compatible BYO transport, model locks, streaming, tools pass-through, provider-safety controls, and usage readback. |
+
+These six repositories are related by lineage, validation strategy, and design philosophy. They are **not public modules intended to be assembled into a copy of Nexus Synapse**.
+
+For formal purpose/evidence/claim-ceiling language, see **[Public Repository and Artifact Map](docs/REPOSITORY_MAP.md)**.
+
+Current validation status: the public Gateway and Router are released and tested at v0.2, and a private Nexus validation-target integration candidate has isolated test/CI evidence. A retained deployed-target challenge campaign has **not** yet been recorded, so the stronger runtime-validation claim remains deliberately withheld.
 
 ---
 
@@ -79,21 +136,19 @@ The public Nexus work is intentionally split by purpose. These surfaces are rela
 
 | Surface | What belongs there | Why it exists |
 |---|---|---|
-| **This engineering portfolio** | Current public-safe architecture, terminology translation, evidence status, case studies, visual orientation, and the canonical Markdown technical reference | The version-controlled engineering front door and public claim/evidence map |
-| **Individual public GitHub repositories** | Executable bounded artifacts such as the Proof Runtime, Memory Kernel, Acceptance Rig, Mode Card Creator, Black-Box Validation Gateway, and OpenAI-compatible Router | Let a specific engineering responsibility be inspected and tested without publishing the private Nexus runtime |
-| **Nexus Synapse Research Library (Google Sites)** | Long-form research, project history, explanatory material, visuals, and reader-friendly presentation copies | A research and presentation layer; it does **not** supersede the version-controlled engineering claims in this repository |
-| **`docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md`** | The current public-safe technical reference | The canonical, diffable source for the technical reference |
-| **Rendered PDF / Drive copy of the technical reference** | A rendered export of the canonical Markdown reference | Distribution and reading convenience; it follows the repository source rather than replacing it |
-| **Historical SSR gist** | Early Structured-SQL-RAG / warehouse-style retrieval lineage and historical benchmark material | Shows where part of the architecture came from; it is not the current SSR implementation |
+| **This engineering portfolio** | Current public-safe architecture, terminology translation, evidence status, case studies, visual orientation, and the canonical Markdown technical reference | Version-controlled engineering front door and public claim/evidence map |
+| **Six public GitHub repositories** | Executable bounded artifacts and validation/infrastructure surfaces | Let specific responsibilities be inspected and tested without publishing the private runtime |
+| **Nexus Synapse Research Library (Google Sites)** | Long-form research, project history, explanatory material, visuals, and reader-friendly presentation copies | Research/presentation layer; it does **not** supersede the version-controlled engineering claims here |
+| **`docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md`** | Current public-safe technical reference | Canonical, diffable source for the technical reference |
+| **Rendered PDF / Drive technical reference** | Rendered export of the canonical Markdown | Distribution convenience; follows the repository source rather than replacing it |
+| **Historical SSR gist** | Early Structured-SQL-RAG / warehouse-style retrieval lineage and historical benchmark material | Shows where part of the architecture came from; not the current SSR implementation |
 
-A quick routing rule:
+Quick routing rule:
 
-- **Want the current architecture or evidence ceiling?** Stay in this portfolio.
-- **Want runnable/testable code for one bounded claim?** Open the corresponding public artifact repository.
-- **Want the longer research narrative, history, or presentation material?** Use the Research Library.
-- **Want the rendered technical document?** Use the PDF, but treat the Markdown source here as authoritative.
-
-The public repositories are deliberately bounded artifacts. They are **not pieces intended to be assembled into a public copy of Nexus Synapse**.
+- **Current architecture or evidence ceiling?** Stay in this portfolio.
+- **Runnable/testable code for one bounded claim?** Open the corresponding public repository.
+- **Longer narrative, history, or presentation material?** Use the Research Library.
+- **Rendered technical document?** Use the PDF, but treat the Markdown source here as authoritative.
 
 ---
 
@@ -124,6 +179,8 @@ A few examples:
 | **Senate** | Multi-agent / ensemble advisory | How can deliberation contribute context while remaining subordinate to runtime authority? |
 | **Thinker** | Background worker / reflection daemon | Which cognition/maintenance responsibilities can run outside the immediate model call, and is that path actually active? |
 | **Tool/capability execution** | Command dispatcher / capability gateway / authorization middleware | How do proposal, scope, authority, execution, evidence, and narration stay separate? |
+
+If those terms are unfamiliar, that is expected. Start with the [Domain Expert Orientation](docs/DOMAIN_EXPERT_ORIENTATION.md) and come back to the terminology map later.
 
 The full translation — including current caveats for Dyad/nodes, reflections, self-model, continuity, memory, Senate, and Thinker — is in **[Nexus Terminology → Conventional Systems Concepts](docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md)**.
 
@@ -168,24 +225,9 @@ These artifacts are not fragments that combine to recreate Nexus. Each is a boun
 
 The newer black-box validation work adds a second pattern: expose the **challenge contract and observable evidence**, while keeping the private target's assembly logic opaque.
 
-## Public project map
-
-| Artifact | What it demonstrates | What it is not |
-|---|---|---|
-| [**Nexus Proof Runtime**](https://github.com/ChrisCanadian/nexus-proof-runtime) | Authorization → execution → receipt/artifact → claim verification | Not the private Nexus conversation runtime, memory system, or production tool path |
-| [**Live Runtime Acceptance Rig**](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig) | Exercise a real boundary and check durable effects instead of trusting narration | Not a Nexus subsystem or whole-system certification framework |
-| [**Nexus Mode Card Creator**](https://github.com/ChrisCanadian/nexus-mode-card-creator) | Fuzzy behavioral intent → guided authoring → human confirmation → portable profile | Does not expose mode activation, weighting, persistence, identity composition, or private SSR integration |
-| [**Nexus Memory Kernel**](https://github.com/ChrisCanadian/Nexus-Memory-Kernel) | Scoped persistent memory → recall/correction/supersession → provenance + bounded memory-capability execution | Does not expose production schemas/queries, private memory eligibility/SSR composition, or the general-purpose Nexus executor |
-| [**Nexus Black-Box Validation Gateway**](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway) | v0.2 public challenge surface → opaque target → core/evaluator-authored challenges → router-use verification → sanitized observable evidence | Does not expose the private target adapter/composition graph and does not yet establish that deployed Nexus passed those challenges |
-| [**OpenAI-compatible Router**](https://github.com/ChrisCanadian/OpenAI-compatible-router) | v0.2 ephemeral BYO provider routing, model locks, streaming, tools pass-through, provider-safety controls, and secret-free usage readback | Generic infrastructure only; contains no Nexus-specific memory, SSR, identity, authority, or production routing policy |
-| [**Early SSR / warehouse-style RAG gist**](https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752) | Historical SQL-guided narrowing before semantic ranking | Not the current SSR implementation |
-| [**Nexus Synapse Research Library**](https://sites.google.com/view/nexus-synapse-research-library/home) | Long-form research, history, explanatory material, visuals, and presentation copies | Not production source code and not the canonical source for current engineering claims |
-
 The Memory Kernel has its own portfolio case study: **[Nexus Memory Kernel](case-studies/memory-kernel.md)**.
 
 The black-box validation strategy and reusable model transport are documented together here: **[Black-Box Validation Gateway + BYO Model Router](case-studies/blackbox-validation-and-byo-router.md)**.
-
-Current validation status: the public gateway/router are released and tested at v0.2, and a private Nexus validation-target integration candidate has isolated test/CI evidence. A retained deployed-target challenge campaign has **not** yet been recorded, so the stronger runtime-validation claim remains deliberately withheld.
 
 ---
 
@@ -223,6 +265,8 @@ evidence
 narration
 ```
 
+In plain language: **seeing something is not permission to act, saying something happened is not proof that it happened, and code existing is not proof that it is active in production.**
+
 The portfolio uses evidence labels because code presence is not automatically a live-system claim.
 
 | Label | Meaning |
@@ -237,7 +281,7 @@ The portfolio uses evidence labels because code presence is not automatically a 
 
 *Visual orientation only. The version-controlled evidence pages remain authoritative if a visual and current text ever disagree.*
 
-For the specific distinction between deployed inspection, isolated execution, public proof, and historical/reconstructed evidence, see **[Production Evidence Status](docs/PRODUCTION_EVIDENCE_STATUS.md)** and **[Sanitized Evidence Receipts](evidence/SANITIZED_EVIDENCE_RECEIPTS.md)**.
+For the distinction between deployed inspection, isolated execution, public proof, and historical/reconstructed evidence, see **[Production Evidence Status](docs/PRODUCTION_EVIDENCE_STATUS.md)** and **[Sanitized Evidence Receipts](evidence/SANITIZED_EVIDENCE_RECEIPTS.md)**.
 
 ---
 
@@ -297,6 +341,8 @@ AI-assisted Python development
 Nexus Synapse
 ```
 
+That background is not incidental to the architecture. Flow, state, ownership, handoffs, permissions, traceability, failure modes, and proof of completion are the concepts I already knew before I knew the AI terminology for them.
+
 AI coding tools have been implementation partners for syntax, debugging, review, and exploration. The architecture, problem selection, operating concepts, acceptance criteria, and system-level decisions are the work documented here.
 
 Nexus is my first Python project.
@@ -305,20 +351,30 @@ More: [`ABOUT_CHRIS.md`](ABOUT_CHRIS.md)
 
 ---
 
-## Recommended reading order
+## Recommended reading paths
+
+### Domain / operations path
+
+1. [`docs/DOMAIN_EXPERT_ORIENTATION.md`](docs/DOMAIN_EXPERT_ORIENTATION.md)
+2. [`docs/NEXUS_OVERVIEW.md`](docs/NEXUS_OVERVIEW.md)
+3. [`docs/NEXUS_VISUAL_GALLERY.md`](docs/NEXUS_VISUAL_GALLERY.md)
+4. [`docs/REPOSITORY_MAP.md`](docs/REPOSITORY_MAP.md)
+5. [`docs/ARCHITECTURAL_EVOLUTION.md`](docs/ARCHITECTURAL_EVOLUTION.md)
+6. [`docs/VERIFICATION_AND_EVIDENCE.md`](docs/VERIFICATION_AND_EVIDENCE.md)
+
+### AI / software / systems path
 
 1. [`docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md`](docs/CURRENT_PRODUCTION_RESPONSIBILITIES.md)
 2. [`docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md`](docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md)
 3. [`docs/PRODUCTION_EVIDENCE_STATUS.md`](docs/PRODUCTION_EVIDENCE_STATUS.md)
-4. [`docs/NEXUS_VISUAL_GALLERY.md`](docs/NEXUS_VISUAL_GALLERY.md)
-5. [`docs/NEXUS_OVERVIEW.md`](docs/NEXUS_OVERVIEW.md)
-6. [`docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md`](docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)
-7. [`docs/ARCHITECTURAL_EVOLUTION.md`](docs/ARCHITECTURAL_EVOLUTION.md)
-8. [`docs/VERIFICATION_AND_EVIDENCE.md`](docs/VERIFICATION_AND_EVIDENCE.md)
-9. [`docs/REPOSITORY_MAP.md`](docs/REPOSITORY_MAP.md)
-10. [`case-studies/`](case-studies/) — including the [Memory Kernel case study](case-studies/memory-kernel.md) and [Black-Box Validation + BYO Router case study](case-studies/blackbox-validation-and-byo-router.md)
-11. [`docs/GLOSSARY.md`](docs/GLOSSARY.md)
-12. [`evidence/claims-and-evidence.json`](evidence/claims-and-evidence.json)
+4. [`docs/NEXUS_OVERVIEW.md`](docs/NEXUS_OVERVIEW.md)
+5. [`docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md`](docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md)
+6. [`docs/ARCHITECTURAL_EVOLUTION.md`](docs/ARCHITECTURAL_EVOLUTION.md)
+7. [`docs/VERIFICATION_AND_EVIDENCE.md`](docs/VERIFICATION_AND_EVIDENCE.md)
+8. [`docs/REPOSITORY_MAP.md`](docs/REPOSITORY_MAP.md)
+9. [`case-studies/`](case-studies/) — including the [Memory Kernel case study](case-studies/memory-kernel.md) and [Black-Box Validation + BYO Router case study](case-studies/blackbox-validation-and-byo-router.md)
+10. [`docs/GLOSSARY.md`](docs/GLOSSARY.md)
+11. [`evidence/claims-and-evidence.json`](evidence/claims-and-evidence.json)
 
 ---
 
@@ -340,19 +396,24 @@ This portfolio does **not** claim:
 
 The point is narrower:
 
-**document the architecture I built, translate its project vocabulary into terms outside engineers can evaluate, show how it evolved, publish inspectable pieces where appropriate, and attach claims to the strongest evidence I actually have.**
+**document the architecture I built, translate its project vocabulary into terms both domain experts and outside engineers can evaluate, show how it evolved, publish inspectable pieces where appropriate, and attach claims to the strongest evidence I actually have.**
 
 ---
 
 ## Research and public artifacts
 
-- [Nexus Synapse Research Library](https://sites.google.com/view/nexus-synapse-research-library/home)
+### Six public repositories
+
 - [Nexus Proof Runtime](https://github.com/ChrisCanadian/nexus-proof-runtime)
 - [Live Runtime Acceptance Rig](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig)
 - [Nexus Mode Card Creator](https://github.com/ChrisCanadian/nexus-mode-card-creator)
 - [Nexus Memory Kernel](https://github.com/ChrisCanadian/Nexus-Memory-Kernel)
 - [Nexus Black-Box Validation Gateway](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway)
 - [OpenAI-compatible Router](https://github.com/ChrisCanadian/OpenAI-compatible-router)
+
+### Supporting public material
+
+- [Nexus Synapse Research Library](https://sites.google.com/view/nexus-synapse-research-library/home)
 - [Historical SSR gist](https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752)
 - [Christopher Campbell on GitHub](https://github.com/ChrisCanadian)
 
