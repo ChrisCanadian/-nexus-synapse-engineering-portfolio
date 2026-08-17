@@ -67,7 +67,7 @@ evidence_class: IMPLEMENTED / PRODUCTION-INSPECTED
 
 **Does not support:** a behavior-triggering live-production end-to-end execution, independent certification, or universal correctness.
 
-## Receipt 004 — Bounded public proof surfaces
+## Receipt 004 — Bounded public proof / reference surfaces
 
 ```text
 receipt_id: PUBLIC-PROOF-FAMILY-2026
@@ -75,14 +75,50 @@ artifacts:
   - nexus-proof-runtime
   - Live-Runtime-Acceptance-Rig
   - nexus-mode-card-creator
-mode: standalone public reference / validation surfaces
-result: bounded architectural claims made inspectable outside the private parent runtime
+  - Nexus-Memory-Kernel
+  - nexus-blackbox-validation-gateway
+  - OpenAI-compatible-router
+mode: standalone public reference / validation / infrastructure surfaces
+result: bounded architectural and validation claims made inspectable outside the private parent runtime
 evidence_class: PUBLIC-BOUNDARY / REFERENCE
 ```
 
-**Supports:** individual architectural principles can be inspected and exercised independently.
+**Supports:** individual architectural principles, validation contracts, and reusable infrastructure can be inspected and exercised independently.
 
 **Does not support:** that the public projects combine to reconstruct or certify Nexus Synapse.
+
+## Receipt 005 — Black-box validation v0.2 integration candidate
+
+```text
+receipt_id: BLACKBOX-INTEGRATION-2026-08-17
+public_gateway:
+  commit: 98d0c1129d675beebaede037a3c0589da3487785
+  ci_run: 32024629336
+  result: success
+public_router:
+  commit: 3558c34a4ae81f408d0a626681262b7723a95c13
+  ci_run: 32024613947
+  result: success
+private_target_candidate:
+  commit: 4b436dedb0c4487959547db16d71baec9f045f17
+  ci_run: 32025115767
+  result: success
+mode:
+  - public gateway/router release verification
+  - private validation-target isolated integration verification
+checks_performed:
+  - evaluator-authored challenge contract / schema
+  - built-in nexus-blackbox-core-v1 suite behavior
+  - public evidence / metadata boundary
+  - BYO provider route isolation + usage readback
+  - private target contract integration in isolated CI
+result: integration path implemented and isolated-tested; no retained deployed-target campaign yet
+evidence_class: TESTED / INTEGRATION-CANDIDATE
+```
+
+**Supports:** the public challenge/transport stack is released and tested at v0.2, and the private Nexus validation-target candidate has separate isolated CI evidence.
+
+**Does not support:** that deployed Nexus has passed the challenge suite, that a production-facing synthetic campaign has been retained, that model-swap parity is established across deployed Nexus, or that an independent third party has certified the private runtime.
 
 ---
 
