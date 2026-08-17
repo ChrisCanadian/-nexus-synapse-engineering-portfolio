@@ -1,6 +1,6 @@
 # Nexus Synapse Engineering Portfolio
 
-### From a Rocket League overlay to a model-agnostic AI runtime
+### From a stream overlay for my son to a model-agnostic AI runtime
 
 > **The model is not the system.**  
 > Nexus Synapse moves continuity, state, context, authority, tools, and evidence into an explicit runtime around interchangeable model inference.
@@ -11,7 +11,7 @@
 
 I did not set out to build an AI runtime.
 
-In August 2025, I was using GPT to help me build a custom overlay for streaming Rocket League. As the project grew, I kept running into the same limitations: memory and continuity disappeared, tool use was constrained, and prompt/context limits forced me to rebuild information the model had already seen.
+In August 2025, my son wanted to watch me stream games. That is what started the side project: I began building a custom overlay for streaming Rocket League, using GPT to help me write the code. As the overlay project grew, I kept running into the same limitations in the AI-assisted workflow: memory and continuity disappeared, tool use was constrained, and prompt/context limits forced me to rebuild information the model had already seen.
 
 Instead of working around the same problems again, I asked a different question:
 
@@ -152,14 +152,16 @@ The newer black-box validation work adds a second pattern: expose the **challeng
 | [**Live Runtime Acceptance Rig**](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig) | Exercise a real boundary and check durable effects instead of trusting narration | Not a Nexus subsystem or whole-system certification framework |
 | [**Nexus Mode Card Creator**](https://github.com/ChrisCanadian/nexus-mode-card-creator) | Fuzzy behavioral intent → guided authoring → human confirmation → portable profile | Does not expose mode activation, weighting, persistence, identity composition, or private SSR integration |
 | [**Nexus Memory Kernel**](https://github.com/ChrisCanadian/Nexus-Memory-Kernel) | Scoped persistent memory → recall/correction/supersession → provenance + bounded memory-capability execution | Does not expose production schemas/queries, private memory eligibility/SSR composition, or the general-purpose Nexus executor |
-| [**Nexus Black-Box Validation Gateway**](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway) | Public challenge surface → opaque target → sanitized observable evidence, with BYO OpenAI-compatible inference | Does not expose the private target adapter/composition graph and is not yet proof that production Nexus passed those challenges |
-| [**OpenAI-compatible Router**](https://github.com/ChrisCanadian/OpenAI-compatible-router) | Ephemeral BYO provider routing, model locks, streaming, tools pass-through, and provider-safety controls | Generic infrastructure only; contains no Nexus-specific memory, SSR, identity, authority, or production routing policy |
+| [**Nexus Black-Box Validation Gateway**](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway) | v0.2 public challenge surface → opaque target → core/evaluator-authored challenges → router-use verification → sanitized observable evidence | Does not expose the private target adapter/composition graph and does not yet establish that deployed Nexus passed those challenges |
+| [**OpenAI-compatible Router**](https://github.com/ChrisCanadian/OpenAI-compatible-router) | v0.2 ephemeral BYO provider routing, model locks, streaming, tools pass-through, provider-safety controls, and secret-free usage readback | Generic infrastructure only; contains no Nexus-specific memory, SSR, identity, authority, or production routing policy |
 | [**Early SSR / warehouse-style RAG gist**](https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752) | Historical SQL-guided narrowing before semantic ranking | Not the current SSR implementation |
 | [**Nexus Synapse Research Library**](https://sites.google.com/view/nexus-synapse-research-library/home) | Longer-form architecture, research, history, and evaluation material | Not production source code |
 
 The Memory Kernel has its own portfolio case study: **[Nexus Memory Kernel](case-studies/memory-kernel.md)**.
 
 The black-box validation strategy and reusable model transport are documented together here: **[Black-Box Validation Gateway + BYO Model Router](case-studies/blackbox-validation-and-byo-router.md)**.
+
+Current validation status: the public gateway/router are released and tested at v0.2, and a private Nexus validation-target integration candidate has isolated test/CI evidence. A retained deployed-target challenge campaign has **not** yet been recorded, so the stronger runtime-validation claim remains deliberately withheld.
 
 ---
 
@@ -304,7 +306,7 @@ This portfolio does **not** claim:
 - that every historical Nexus subsystem is still active;
 - that every implemented subsystem is fully tested;
 - independent certification of the private runtime;
-- that the new black-box gateway has already validated production Nexus;
+- that the current black-box stack has already produced a retained deployed-Nexus challenge campaign;
 - that isolated V5 reconstruction work is automatically the accepted production path;
 - that the public Proof Runtime, Memory Kernel, Acceptance Rig, Validation Gateway, or Router reproduces the private parent system;
 - that public artifacts are complete representations of Nexus Synapse;
