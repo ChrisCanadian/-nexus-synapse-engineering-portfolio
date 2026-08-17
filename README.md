@@ -73,6 +73,30 @@ If you only want the current production responsibility chain without the project
 
 ---
 
+## Where the public Nexus material lives
+
+The public Nexus work is intentionally split by purpose. These surfaces are related, but they are **not interchangeable sources of truth**.
+
+| Surface | What belongs there | Why it exists |
+|---|---|---|
+| **This engineering portfolio** | Current public-safe architecture, terminology translation, evidence status, case studies, visual orientation, and the canonical Markdown technical reference | The version-controlled engineering front door and public claim/evidence map |
+| **Individual public GitHub repositories** | Executable bounded artifacts such as the Proof Runtime, Memory Kernel, Acceptance Rig, Mode Card Creator, Black-Box Validation Gateway, and OpenAI-compatible Router | Let a specific engineering responsibility be inspected and tested without publishing the private Nexus runtime |
+| **Nexus Synapse Research Library (Google Sites)** | Long-form research, project history, explanatory material, visuals, and reader-friendly presentation copies | A research and presentation layer; it does **not** supersede the version-controlled engineering claims in this repository |
+| **`docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md`** | The current public-safe technical reference | The canonical, diffable source for the technical reference |
+| **Rendered PDF / Drive copy of the technical reference** | A rendered export of the canonical Markdown reference | Distribution and reading convenience; it follows the repository source rather than replacing it |
+| **Historical SSR gist** | Early Structured-SQL-RAG / warehouse-style retrieval lineage and historical benchmark material | Shows where part of the architecture came from; it is not the current SSR implementation |
+
+A quick routing rule:
+
+- **Want the current architecture or evidence ceiling?** Stay in this portfolio.
+- **Want runnable/testable code for one bounded claim?** Open the corresponding public artifact repository.
+- **Want the longer research narrative, history, or presentation material?** Use the Research Library.
+- **Want the rendered technical document?** Use the PDF, but treat the Markdown source here as authoritative.
+
+The public repositories are deliberately bounded artifacts. They are **not pieces intended to be assembled into a public copy of Nexus Synapse**.
+
+---
+
 ## How to evaluate Nexus terminology
 
 Nexus accumulated its own subsystem names while the architecture evolved. Those names are useful for project history, but **the name itself is not the novelty claim**.
@@ -155,7 +179,7 @@ The newer black-box validation work adds a second pattern: expose the **challeng
 | [**Nexus Black-Box Validation Gateway**](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway) | v0.2 public challenge surface → opaque target → core/evaluator-authored challenges → router-use verification → sanitized observable evidence | Does not expose the private target adapter/composition graph and does not yet establish that deployed Nexus passed those challenges |
 | [**OpenAI-compatible Router**](https://github.com/ChrisCanadian/OpenAI-compatible-router) | v0.2 ephemeral BYO provider routing, model locks, streaming, tools pass-through, provider-safety controls, and secret-free usage readback | Generic infrastructure only; contains no Nexus-specific memory, SSR, identity, authority, or production routing policy |
 | [**Early SSR / warehouse-style RAG gist**](https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752) | Historical SQL-guided narrowing before semantic ranking | Not the current SSR implementation |
-| [**Nexus Synapse Research Library**](https://sites.google.com/view/nexus-synapse-research-library/home) | Longer-form architecture, research, history, and evaluation material | Not production source code |
+| [**Nexus Synapse Research Library**](https://sites.google.com/view/nexus-synapse-research-library/home) | Long-form research, history, explanatory material, visuals, and presentation copies | Not production source code and not the canonical source for current engineering claims |
 
 The Memory Kernel has its own portfolio case study: **[Nexus Memory Kernel](case-studies/memory-kernel.md)**.
 
