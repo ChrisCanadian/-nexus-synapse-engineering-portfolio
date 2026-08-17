@@ -142,6 +142,8 @@ test that surface independently
 
 These artifacts are not fragments that combine to recreate Nexus. Each is a bounded public surface intended to make one architectural idea inspectable.
 
+The newer black-box validation work adds a second pattern: expose the **challenge contract and observable evidence**, while keeping the private target's assembly logic opaque.
+
 ## Public project map
 
 | Artifact | What it demonstrates | What it is not |
@@ -150,10 +152,14 @@ These artifacts are not fragments that combine to recreate Nexus. Each is a boun
 | [**Live Runtime Acceptance Rig**](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig) | Exercise a real boundary and check durable effects instead of trusting narration | Not a Nexus subsystem or whole-system certification framework |
 | [**Nexus Mode Card Creator**](https://github.com/ChrisCanadian/nexus-mode-card-creator) | Fuzzy behavioral intent → guided authoring → human confirmation → portable profile | Does not expose mode activation, weighting, persistence, identity composition, or private SSR integration |
 | [**Nexus Memory Kernel**](https://github.com/ChrisCanadian/Nexus-Memory-Kernel) | Scoped persistent memory → recall/correction/supersession → provenance + bounded memory-capability execution | Does not expose production schemas/queries, private memory eligibility/SSR composition, or the general-purpose Nexus executor |
+| [**Nexus Black-Box Validation Gateway**](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway) | Public challenge surface → opaque target → sanitized observable evidence, with BYO OpenAI-compatible inference | Does not expose the private target adapter/composition graph and is not yet proof that production Nexus passed those challenges |
+| [**OpenAI-compatible Router**](https://github.com/ChrisCanadian/OpenAI-compatible-router) | Ephemeral BYO provider routing, model locks, streaming, tools pass-through, and provider-safety controls | Generic infrastructure only; contains no Nexus-specific memory, SSR, identity, authority, or production routing policy |
 | [**Early SSR / warehouse-style RAG gist**](https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752) | Historical SQL-guided narrowing before semantic ranking | Not the current SSR implementation |
 | [**Nexus Synapse Research Library**](https://sites.google.com/view/nexus-synapse-research-library/home) | Longer-form architecture, research, history, and evaluation material | Not production source code |
 
 The Memory Kernel has its own portfolio case study: **[Nexus Memory Kernel](case-studies/memory-kernel.md)**.
+
+The black-box validation strategy and reusable model transport are documented together here: **[Black-Box Validation Gateway + BYO Model Router](case-studies/blackbox-validation-and-byo-router.md)**.
 
 ---
 
@@ -229,7 +235,7 @@ Read the deeper history in [`docs/ARCHITECTURAL_EVOLUTION.md`](docs/ARCHITECTURA
 
 This repository is designed to explain Nexus **without making the private runtime reproducible**.
 
-Public material may include high-level architecture, historical design artifacts, public-safe diagrams, evidence categories, sanitized case studies, bounded reference implementations, and public benchmarks where the test conditions can be explained.
+Public material may include high-level architecture, historical design artifacts, public-safe diagrams, evidence categories, sanitized case studies, bounded reference implementations, public challenge contracts, and public benchmarks where the test conditions can be explained.
 
 Intentionally excluded:
 
@@ -238,6 +244,7 @@ Intentionally excluded:
 - raw SSR contents, ordering, thresholds, selection rules, and weighting logic;
 - private prompts and identity-composition mechanics;
 - production tool wiring/internal APIs;
+- private black-box target adapters that translate public challenge requests into Nexus internals;
 - deployment scripts, environment configuration, infrastructure paths, and runbooks;
 - credentials, secrets, private endpoints, customer configuration, or user data;
 - production conversations, memories, reflections, raw traces, or private logs.
@@ -283,7 +290,7 @@ More: [`ABOUT_CHRIS.md`](ABOUT_CHRIS.md)
 7. [`docs/ARCHITECTURAL_EVOLUTION.md`](docs/ARCHITECTURAL_EVOLUTION.md)
 8. [`docs/VERIFICATION_AND_EVIDENCE.md`](docs/VERIFICATION_AND_EVIDENCE.md)
 9. [`docs/REPOSITORY_MAP.md`](docs/REPOSITORY_MAP.md)
-10. [`case-studies/`](case-studies/) — including the [Memory Kernel case study](case-studies/memory-kernel.md)
+10. [`case-studies/`](case-studies/) — including the [Memory Kernel case study](case-studies/memory-kernel.md) and [Black-Box Validation + BYO Router case study](case-studies/blackbox-validation-and-byo-router.md)
 11. [`docs/GLOSSARY.md`](docs/GLOSSARY.md)
 12. [`evidence/claims-and-evidence.json`](evidence/claims-and-evidence.json)
 
@@ -297,11 +304,12 @@ This portfolio does **not** claim:
 - that every historical Nexus subsystem is still active;
 - that every implemented subsystem is fully tested;
 - independent certification of the private runtime;
+- that the new black-box gateway has already validated production Nexus;
 - that isolated V5 reconstruction work is automatically the accepted production path;
-- that the public Proof Runtime, Memory Kernel, or Acceptance Rig reproduces the private parent system;
+- that the public Proof Runtime, Memory Kernel, Acceptance Rig, Validation Gateway, or Router reproduces the private parent system;
 - that public artifacts are complete representations of Nexus Synapse;
 - that receipt/hash verification establishes semantic truth;
-- that Nexus invented memory, RAG, tool use, agent frameworks, multi-agent debate, authorization middleware, background workers, behavioral configuration, or context engineering;
+- that Nexus invented memory, RAG, tool use, agent frameworks, multi-agent debate, authorization middleware, background workers, behavioral configuration, context engineering, or OpenAI-compatible routing;
 - that a Nexus subsystem name is a novelty claim by itself.
 
 The point is narrower:
@@ -317,6 +325,8 @@ The point is narrower:
 - [Live Runtime Acceptance Rig](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig)
 - [Nexus Mode Card Creator](https://github.com/ChrisCanadian/nexus-mode-card-creator)
 - [Nexus Memory Kernel](https://github.com/ChrisCanadian/Nexus-Memory-Kernel)
+- [Nexus Black-Box Validation Gateway](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway)
+- [OpenAI-compatible Router](https://github.com/ChrisCanadian/OpenAI-compatible-router)
 - [Historical SSR gist](https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752)
 - [Christopher Campbell on GitHub](https://github.com/ChrisCanadian)
 
