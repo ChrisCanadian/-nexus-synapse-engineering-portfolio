@@ -35,21 +35,25 @@ The validation gateway and model router are deliberately separate responsibiliti
 
 ### Nexus Black-Box Validation Gateway
 
-The gateway owns the public validation contract:
+The v0.2 gateway owns the public validation contract:
 
 - short-lived validation sandboxes;
 - BYO OpenAI-compatible provider handoff;
 - supported public artifact submission such as `mode-card.v1`;
 - opaque target forwarding;
 - sanitized run/evidence envelopes;
-- challenge-runner support;
+- a hard metadata firewall between private target and public evidence;
+- a machine-readable challenge schema for evaluator-authored tests;
+- the built-in `nexus-blackbox-core-v1` suite;
+- independent router-usage verification;
+- cleanup/revocation support;
 - application kill switch and access controls.
 
 It does not reproduce Nexus and does not publish the private adapter that translates a challenge into private runtime behavior.
 
 ### OpenAI-compatible Router
 
-The router owns generic inference transport:
+The v0.2 router owns generic inference transport:
 
 - ephemeral in-memory provider routes;
 - per-route API keys;
@@ -60,7 +64,9 @@ The router owns generic inference transport:
 - `/v1/models` compatibility;
 - route expiry/deletion and completion ceilings;
 - outbound SSRF protection;
-- secret-safe failure behavior.
+- secret-safe failure behavior;
+- request-scoped route credentials compatible with ordinary OpenAI-style bearer use;
+- secret-free usage readback so the validation layer can verify that evaluator-owned provider traffic actually traversed the router.
 
 It contains no Nexus-specific memory, identity, SSR, authority, behavioral-state, entitlement, or composition logic.
 
@@ -89,7 +95,7 @@ For example, the Mode Card Creator can produce a public artifact accepted by the
 
 The evaluator can supply an OpenAI-compatible model/provider instead of relying on a model chosen or funded by the Nexus operator.
 
-That supports a stronger future test of the thesis:
+That supports a stronger test of the thesis:
 
 > **The model is not the system.**
 
@@ -99,55 +105,63 @@ The public router is infrastructure for that experiment. It does not by itself d
 
 ## What the public tests establish
 
-The v0.1.0 gateway and router repositories have their own automated suites and GitHub CI.
+The v0.2 gateway and router repositories each have automated suites and GitHub CI.
 
-The gateway tests cover the public challenge surface, artifact handling, evidence sanitation, access/kill-switch behavior, and challenge execution against an opaque test target.
+The gateway tests cover the public challenge surface, artifact handling, metadata sanitation, evidence-envelope behavior, access/kill-switch behavior, challenge execution against an opaque test target, challenge-schema validation, built-in suite behavior, cleanup, and router-observation handling.
 
-The router tests cover route isolation, model locking, OpenAI-compatible request forwarding, streaming, tool-call pass-through, route lifecycle behavior, SSRF protection, and secret-safe error handling.
+The router tests cover route isolation, model locking, OpenAI-compatible request forwarding, streaming, tool-call pass-through, route lifecycle behavior, SSRF protection, secret-safe error handling, request-scoped route credentials, and secret-free usage readback.
 
-Publication CI passed on Python 3.11–3.13 for both repositories.
+Publication CI passed on Python 3.11–3.13 for both repositories after the v0.2 merges.
+
+## Private-target integration status
+
+The private Nexus parent repository now has a dedicated validation-target integration candidate with isolated integration tests and CI.
+
+That matters because the public challenge contract no longer ends only at a synthetic mock design: there is now a private implementation path intended to terminate against the real Nexus runtime responsibilities while keeping the construction graph hidden.
+
+But the evidence boundary remains important:
+
+> **Implemented and isolated-tested is not the same as deployed and retained.**
+
+At the current portfolio update, no retained deployed-target campaign has yet been recorded through that private integration. The public repository therefore must not claim that Nexus has passed the built-in core suite or an independent evaluator's unseen challenge.
 
 ## Current claim ceiling
 
-This is the most important part.
-
 The public gateway currently supports the claim:
 
-> **A public-safe black-box validation surface can be implemented and tested without publishing the target runtime's private composition logic.**
+> **A public-safe black-box validation surface with evaluator-authored challenge contracts, a retained core suite, provider-use verification, and sanitized evidence boundaries can be implemented and tested without publishing the target runtime's private composition logic.**
 
 The router currently supports the claim:
 
-> **BYO OpenAI-compatible model transport can be isolated into a reusable, provider-facing component without embedding Nexus-specific runtime logic.**
+> **BYO OpenAI-compatible model transport can be isolated into a reusable, provider-facing component with route isolation and observable usage evidence without embedding Nexus-specific runtime logic.**
 
-They do **not yet** establish:
+The private integration work supports a narrower internal status statement:
 
-- that the gateway has challenged the current production Nexus runtime;
-- that a production-facing synthetic Nexus tenant is live;
+> **A private Nexus validation-target integration has been implemented and isolated-tested as a deployment candidate.**
+
+These still do **not** establish:
+
+- that the gateway has completed a retained challenge campaign against the deployed Nexus target;
+- that Nexus has passed `nexus-blackbox-core-v1` on a production-facing synthetic tenant;
 - that external evaluators have authored and executed independent Nexus challenge packs;
-- controlled model-swap parity across the real private runtime;
+- controlled model-swap parity across the deployed private runtime;
 - whole-system certification;
 - any private Nexus implementation detail.
 
-Those stronger claims require an actual private adapter/tenant connection and retained black-box challenge runs.
+Those stronger claims require the retained real-target campaign and, separately, genuinely independent evaluator-authored testing.
 
 ## Why this belongs in the portfolio
 
 Earlier public projects made individual architectural responsibilities inspectable. This pair adds a different capability: a path for outsiders to test selected claims **against an opaque private target** rather than only reviewing bounded public analogues.
 
-That moves the public strategy from:
+The progression is now:
 
 ```text
 explain a claim
 → publish a bounded artifact
-→ let outsiders inspect the artifact
-```
-
-one step closer to:
-
-```text
-publish the challenge contract
-→ let outsiders author the challenge
-→ execute against the private target
+→ publish the challenge contract
+→ let outsiders author a challenge
+→ execute against an opaque target
 → retain observable evidence
 ```
 
