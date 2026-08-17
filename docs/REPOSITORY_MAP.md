@@ -2,6 +2,19 @@
 
 This page explains how the public Nexus-related artifacts fit together without implying that they are deployed as one public system.
 
+If you are not coming from AI/software engineering, the shortest version is:
+
+| Repository | The problem in ordinary work terms |
+|---|---|
+| [Nexus Proof Runtime](https://github.com/ChrisCanadian/nexus-proof-runtime) | Do not treat "I did it" as proof. Separate permission, action, and evidence. |
+| [Live Runtime Acceptance Rig](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig) | Verify the real target changed, not just that the test script ran successfully. |
+| [Nexus Mode Card Creator](https://github.com/ChrisCanadian/nexus-mode-card-creator) | Turn desired working style into a reusable profile without confusing style with authority. |
+| [Nexus Memory Kernel](https://github.com/ChrisCanadian/Nexus-Memory-Kernel) | Keep memory scoped, correctable, traceable, and persistent. |
+| [Nexus Black-Box Validation Gateway](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway) | Let someone test a closed system without handing them its private implementation. |
+| [OpenAI-compatible Router](https://github.com/ChrisCanadian/OpenAI-compatible-router) | Change or supply the model/provider without redesigning the application around it. |
+
+For a fuller domain-first explanation, see [Nexus Synapse for Domain Experts](DOMAIN_EXPERT_ORIENTATION.md).
+
 ## Map
 
 | Artifact | Public purpose | Relationship to Nexus | Evidence status | Claim ceiling |
@@ -100,3 +113,5 @@ They are **not** presented as a set of public modules that can be assembled into
 The Black-Box Validation Gateway is specifically intended to make selected private-runtime claims externally challengeable without publishing the private composition graph. A private Nexus validation-target integration candidate now exists and has isolated integration test/CI evidence, but the public claim ceiling remains unchanged until a retained deployed-target campaign is recorded.
 
 For readers coming from conventional software/AI systems terminology, see [Nexus Terminology → Conventional Systems Concepts](NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md).
+
+For readers coming from a domain/operations background, see [Nexus Synapse for Domain Experts](DOMAIN_EXPERT_ORIENTATION.md).
