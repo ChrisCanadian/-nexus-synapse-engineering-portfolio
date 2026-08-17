@@ -66,6 +66,27 @@
       ]
     },
     {
+      "id": "validation.blackbox_gateway",
+      "claim": "Nexus Black-Box Validation Gateway is a standalone public challenge surface for opaque targets with BYO OpenAI-compatible inference handoff, public artifact submission, sanitized evidence envelopes, and challenge execution.",
+      "evidence_state": "TESTED",
+      "claim_ceiling": "Public gateway behavior only; not evidence that current production Nexus has been challenged until a private production-facing adapter/tenant is connected and exercised.",
+      "sources": [
+        "https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway",
+        "case-studies/blackbox-validation-and-byo-router.md",
+        "docs/PRODUCTION_EVIDENCE_STATUS.md"
+      ]
+    },
+    {
+      "id": "router.openai_compatible_byo",
+      "claim": "OpenAI-compatible Router is reusable standalone infrastructure for short-lived BYO provider routing, model locking, streaming, tools pass-through, route lifecycle controls, SSRF protection, and secret-safe failures without embedding Nexus-specific runtime logic.",
+      "evidence_state": "TESTED",
+      "claim_ceiling": "Standalone router behavior only; not evidence of private Nexus routing policy, runtime composition, or production integration.",
+      "sources": [
+        "https://github.com/ChrisCanadian/OpenAI-compatible-router",
+        "case-studies/blackbox-validation-and-byo-router.md"
+      ]
+    },
+    {
       "id": "ssr.historical_lineage",
       "claim": "Historical SSR work used structured SQL filtering/scoping before selective context injection and is an ancestor of broader later context reconstruction.",
       "evidence_state": "TESTED",

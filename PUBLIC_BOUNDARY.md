@@ -42,9 +42,31 @@ For example:
 - **Live Runtime Acceptance Rig** demonstrates safe live-boundary acceptance and evidence retention.
 - **Nexus Mode Card Creator** demonstrates bounded behavioral-profile authoring.
 - **Nexus Memory Kernel** demonstrates scoped persistent memory, temporal recall, correction/supersession, provenance, and bounded memory-capability execution. It does **not** expose private memory-selection logic, SSR composition, production schemas/query logic, or the private general-purpose capability executor.
+- **Nexus Black-Box Validation Gateway** exposes a public challenge contract, BYO inference handoff, and sanitized evidence envelope for an opaque target. It does **not** expose private target composition, SSR internals, state-selection rules, production APIs, or the private adapter that translates public validation requests into Nexus behavior.
+- **OpenAI-compatible Router** is generic reusable model-transport infrastructure. It exposes ephemeral route handling, model locking, streaming/tool pass-through, and provider-safety controls, but contains no Nexus-specific composition, entitlement, routing policy, memory, identity, or context logic.
 - The historical SSR gist demonstrates an early SQL-guided context-selection approach.
 
 Each artifact has its own public boundary and claim ceiling.
+
+## Black-box validation boundary
+
+The validation strategy deliberately separates **what can be challenged** from **how the private target produces the result**.
+
+Public material may describe:
+
+```text
+challenge input
+    ↓
+opaque target
+    ↓
+observable output / effect
+    ↓
+sanitary evidence envelope
+```
+
+It does not publish the private translation or composition graph behind that opaque target.
+
+The current public gateway should therefore be read as a tested validation surface. Until a private production-facing adapter and synthetic Nexus tenant are connected and exercised, it is **not** evidence that current production Nexus has passed those black-box challenges.
 
 ## Evidence language
 
