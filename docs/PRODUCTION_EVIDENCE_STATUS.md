@@ -24,17 +24,24 @@ The key retained example is the **July 11, 2026 isolated production-target trace
 
 This is real execution evidence, but it should not be silently promoted into a claim that the exact same path was executed on the live VM at a later date.
 
-### C. Bounded public proof
+### C. Bounded public proof and validation infrastructure
 
-Standalone public artifacts exercise one architectural claim in a smaller inspectable system.
+Standalone public artifacts exercise one architectural claim or validation responsibility in a smaller inspectable system.
 
 Examples:
 
 - Nexus Proof Runtime;
 - Live Runtime Acceptance Rig;
-- Nexus Mode Card Creator.
+- Nexus Mode Card Creator;
+- Nexus Memory Kernel;
+- Nexus Black-Box Validation Gateway;
+- OpenAI-compatible Router.
+
+The first four expose bounded architectural responsibilities. The Black-Box Validation Gateway adds a public challenge surface for an opaque target, while the OpenAI-compatible Router provides generic BYO model transport for that validation path and other future uses.
 
 These are useful because the claim boundary is explicit. They are **not fragments that combine to recreate or certify the private parent runtime**.
+
+The validation gateway is currently evidence for the **validation architecture itself**. It has not yet been connected to and exercised against a private production-facing Nexus synthetic tenant, so it must not be cited as independent black-box validation of current production Nexus yet.
 
 ### D. Historical / reconstruction / design evidence
 
@@ -63,7 +70,10 @@ They are valuable, but weaker for claims about **current deployed behavior** unl
 | Direct-feedback downstream effect | Aug 14 inspection | Persisted, but next-turn effect through the active SSR path not proven |
 | Goals / curiosity / injectable background cognition | Aug 14 inspection | Empty or disconnected in the audited state |
 | Thinker | Aug 14 deployed-code inspection | Not proven in the current main deployed path |
-| Controlled primary-model swap parity | Public evidence set | Not demonstrated |
+| Public black-box validation surface | Black-Box Validation Gateway v0.1.0 + CI | Implemented/tested as a standalone gateway; production-facing Nexus target not yet connected/exercised |
+| Generic BYO model transport | OpenAI-compatible Router v0.1.0 + CI | Implemented/tested as standalone infrastructure; not yet production Nexus integration evidence |
+| Controlled primary-model swap parity in Nexus | Public evidence set | Not demonstrated against the private production runtime |
+| Independent third-party black-box validation of Nexus | Public evidence set | Infrastructure now exists; actual private-runtime challenge run not yet demonstrated |
 | Independent third-party replication | Public evidence set | Not demonstrated |
 
 ## What is actually strongest today?
@@ -73,6 +83,8 @@ The most defensible current-production claim is **not** “the entire runtime ha
 It is narrower:
 
 > **The actual deployed implementation and state have been inspected deeply enough to distinguish current, degraded, disconnected, omitted, and conditional responsibilities; selected runtime behaviors have separate isolated execution evidence; bounded public projects independently exercise narrower architectural claims.**
+
+The newer black-box gateway provides a path toward stronger independent validation without requiring publication of the private runtime. That path becomes production evidence only when an external challenge is actually executed against a production-facing synthetic Nexus target and the observable result is retained.
 
 That is a stronger claim than a diagram or self-description, and a weaker claim than full independent live-production certification.
 
@@ -97,9 +109,10 @@ For claims about current Nexus behavior, prefer evidence in this order:
 
 1. **Actual deployed production inspection / retained live-boundary evidence**
 2. **Controlled isolated execution evidence tied to the production architecture**
-3. **Bounded public proof artifacts**
-4. **Retained deterministic tests / benchmarks / audits**
-5. **Implementation present in source**
-6. **Historical design documents / cross-source lineage reconstruction**
+3. **Externally authored black-box challenge evidence against a production-facing target**
+4. **Bounded public proof artifacts and validation infrastructure**
+5. **Retained deterministic tests / benchmarks / audits**
+6. **Implementation present in source**
+7. **Historical design documents / cross-source lineage reconstruction**
 
 The lower categories are not “bad evidence.” They simply answer different questions.
