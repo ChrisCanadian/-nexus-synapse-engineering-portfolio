@@ -41,7 +41,9 @@ The first four expose bounded architectural responsibilities. The Black-Box Vali
 
 These are useful because the claim boundary is explicit. They are **not fragments that combine to recreate or certify the private parent runtime**.
 
-The validation gateway is currently evidence for the **validation architecture itself**. It has not yet been connected to and exercised against a private production-facing Nexus synthetic tenant, so it must not be cited as independent black-box validation of current production Nexus yet.
+The v0.2 validation gateway now includes an evaluator-authored challenge schema, the built-in `nexus-blackbox-core-v1` suite, a metadata firewall, cleanup/revocation support, and independent observation of router usage. The v0.2 router adds request-scoped route credentials and secret-free usage readback while preserving route isolation, model locking, streaming, tool pass-through, SSRF protection, and secret-safe failure handling.
+
+The private parent repository also now contains a dedicated validation-target integration candidate with isolated tests and CI. That is meaningful implementation/integration evidence, but it is still **not** deployed-target black-box evidence until a retained campaign is executed against the private Nexus target.
 
 ### D. Historical / reconstruction / design evidence
 
@@ -70,10 +72,11 @@ They are valuable, but weaker for claims about **current deployed behavior** unl
 | Direct-feedback downstream effect | Aug 14 inspection | Persisted, but next-turn effect through the active SSR path not proven |
 | Goals / curiosity / injectable background cognition | Aug 14 inspection | Empty or disconnected in the audited state |
 | Thinker | Aug 14 deployed-code inspection | Not proven in the current main deployed path |
-| Public black-box validation surface | Black-Box Validation Gateway v0.1.0 + CI | Implemented/tested as a standalone gateway; production-facing Nexus target not yet connected/exercised |
-| Generic BYO model transport | OpenAI-compatible Router v0.1.0 + CI | Implemented/tested as standalone infrastructure; not yet production Nexus integration evidence |
-| Controlled primary-model swap parity in Nexus | Public evidence set | Not demonstrated against the private production runtime |
-| Independent third-party black-box validation of Nexus | Public evidence set | Infrastructure now exists; actual private-runtime challenge run not yet demonstrated |
+| Public black-box validation surface | Black-Box Validation Gateway v0.2 + CI | Implemented/tested as a standalone gateway with core suite + evaluator-authored challenge contract; deployed Nexus target not yet exercised |
+| Generic BYO model transport | OpenAI-compatible Router v0.2 + CI | Implemented/tested standalone; provider-use readback exists; no retained deployed Nexus campaign yet |
+| Private black-box target integration | Private validation-target candidate + isolated CI | Implemented and isolated-tested as a deployment candidate; not yet retained as deployed-target evidence |
+| Controlled primary-model swap parity in Nexus | Public evidence set | Not demonstrated against the deployed private runtime |
+| Independent third-party black-box validation of Nexus | Public evidence set | Challenge infrastructure exists; genuinely independent private-runtime campaign not yet demonstrated |
 | Independent third-party replication | Public evidence set | Not demonstrated |
 
 ## What is actually strongest today?
@@ -84,9 +87,9 @@ It is narrower:
 
 > **The actual deployed implementation and state have been inspected deeply enough to distinguish current, degraded, disconnected, omitted, and conditional responsibilities; selected runtime behaviors have separate isolated execution evidence; bounded public projects independently exercise narrower architectural claims.**
 
-The newer black-box gateway provides a path toward stronger independent validation without requiring publication of the private runtime. That path becomes production evidence only when an external challenge is actually executed against a production-facing synthetic Nexus target and the observable result is retained.
+The newer black-box stack is now stronger than a standalone gateway mock: the public gateway and router are released/tested at v0.2, and a private validation-target integration candidate has isolated test/CI evidence. But the claim only becomes deployed-target black-box evidence when a retained campaign actually traverses that private target and records sanitized results.
 
-That is a stronger claim than a diagram or self-description, and a weaker claim than full independent live-production certification.
+That is a stronger position than a diagram or self-description, and a weaker claim than full independent live-production certification.
 
 ## Why the raw terminal dump is not the publication artifact
 
