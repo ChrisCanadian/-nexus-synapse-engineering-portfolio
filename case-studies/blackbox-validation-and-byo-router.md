@@ -113,17 +113,25 @@ The router tests cover route isolation, model locking, OpenAI-compatible request
 
 Publication CI passed on Python 3.11–3.13 for both repositories after the v0.2 merges.
 
-## Private-target integration status
+## Private-target campaign status
 
-The private Nexus parent repository now has a dedicated validation-target integration candidate with isolated integration tests and CI.
+The private Nexus parent repository has a dedicated validation-target integration with isolated integration tests and CI. A retained campaign then traversed the existing deployment on August 18, 2026.
 
-That matters because the public challenge contract no longer ends only at a synthetic mock design: there is now a private implementation path intended to terminate against the real Nexus runtime responsibilities while keeping the construction graph hidden.
+The fixed invariants **failed**. The retained diagnostic record supports these narrower findings:
 
-But the evidence boundary remains important:
+- session mappings were deterministic, distinct, and correctly tagged;
+- all six expected persistence barriers were observed;
+- each expected interaction and summary existed before the following turn;
+- cross-conversation continuity failed because the wording triggered `keyword_memory_search`, which the validation tool allowlist did not permit; the resulting unavailable tool response outranked the otherwise populated all-session CAG;
+- correction persistence failed because deterministic extractive summarization kept the obsolete-value sentence but omitted the later replacement marker;
+- a separate unseen challenge passed because its wording avoided the memory-tool round trip and its correction put the new value in the first sentence;
+- provider counts advanced once per unseen turn, supporting that the unseen case used CAG through the evaluator route.
 
-> **Implemented and isolated-tested is not the same as deployed and retained.**
+The diagnostic also observed the candidate integration modules alongside newer production engine/memory modules that supply the empty-session-to-all-session CAG fallback. That implementation observation explains the behavior; it does not establish that the fallback satisfies the fixed invariants.
 
-At the current portfolio update, no retained deployed-target campaign has yet been recorded through that private integration. The public repository therefore must not claim that Nexus has passed the built-in core suite or an independent evaluator's unseen challenge.
+A passing mechanism-level subcheck or separate unseen challenge must not be reported as a suite pass. The controlling result is:
+
+> **The August 18 deployed-target fixed-invariant campaign failed. Deployed Nexus has not passed the public core validation claim.**
 
 ## Current claim ceiling
 
@@ -135,14 +143,14 @@ The router currently supports the claim:
 
 > **BYO OpenAI-compatible model transport can be isolated into a reusable, provider-facing component with route isolation and observable usage evidence without embedding Nexus-specific runtime logic.**
 
-The private integration work supports a narrower internal status statement:
+The private integration and retained campaign support a narrower status statement:
 
-> **A private Nexus validation-target integration has been implemented and isolated-tested as a deployment candidate.**
+> **The validation path reached the existing deployment and exposed repeatable retrieval/summarization interactions; the fixed-invariant result failed.**
 
 These still do **not** establish:
 
-- that the gateway has completed a retained challenge campaign against the deployed Nexus target;
-- that Nexus has passed `nexus-blackbox-core-v1` on a production-facing synthetic tenant;
+- that Nexus has passed `nexus-blackbox-core-v1` or the August 18 fixed-invariant campaign on a production-facing synthetic tenant;
+- that a separate unseen challenge pass overrides the failed fixed-invariant result;
 - that external evaluators have authored and executed independent Nexus challenge packs;
 - controlled model-swap parity across the deployed private runtime;
 - whole-system certification;
@@ -163,6 +171,7 @@ explain a claim
 → let outsiders author a challenge
 → execute against an opaque target
 → retain observable evidence
+→ preserve failed invariants without promoting partial passes
 ```
 
 The private runtime still does not need to become a reconstruction kit.

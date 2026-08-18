@@ -80,9 +80,9 @@ This diagram is intentionally high level. The public portfolio does not disclose
 
 *Public conceptual synthesis of the shift toward explicit runtime oversight. It should not be read as a literal current deployment graph or a claim that every illustrated lane is active on every turn.*
 
-## The six public repositories
+## The seven public repositories
 
-The private Nexus runtime is not published. Instead, six bounded repositories expose selected engineering responsibilities:
+The private Nexus runtime is not published. Instead, seven bounded repositories expose selected engineering responsibilities and historical lineage:
 
 | Repository | Plain-language problem |
 |---|---|
@@ -92,6 +92,7 @@ The private Nexus runtime is not published. Instead, six bounded repositories ex
 | [Nexus Memory Kernel](https://github.com/ChrisCanadian/Nexus-Memory-Kernel) | Make memory scoped, correctable, traceable, and persistent rather than simply "remember everything." |
 | [Nexus Black-Box Validation Gateway](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway) | Let outsiders challenge a closed runtime without publishing the private implementation. |
 | [OpenAI-compatible Router](https://github.com/ChrisCanadian/OpenAI-compatible-router) | Let model/provider transport change without rebuilding the surrounding application. |
+| [ChrisAI Runtime](https://github.com/ChrisCanadian/chrisai-runtime) | Run an evidence-constrained reconstruction of the flat-file runtime that preceded Nexus. |
 
 For the formal evidence status and claim ceiling of each repository, see the [Repository Map](REPOSITORY_MAP.md).
 

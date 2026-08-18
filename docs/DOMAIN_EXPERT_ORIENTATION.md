@@ -69,9 +69,9 @@ That question appears in many domains:
 
 Nexus does not claim to solve every domain-specific requirement. The point is that the **runtime responsibility pattern** is recognizable outside AI engineering.
 
-## The six public repositories in plain English
+## The seven public repositories in plain English
 
-Nexus Synapse itself remains private. The public repositories expose bounded ideas that can be inspected without publishing the private runtime.
+Nexus Synapse itself remains private. The public repositories expose bounded ideas and one historical reconstruction that can be inspected without publishing the private runtime.
 
 | Public repository | Plain-language problem | Engineering responsibility |
 |---|---|---|
@@ -81,6 +81,7 @@ Nexus Synapse itself remains private. The public repositories expose bounded ide
 | [**Nexus Memory Kernel**](https://github.com/ChrisCanadian/Nexus-Memory-Kernel) | Useful AI memory needs scope, correction, history, and provenance — not just "remember everything." | Scoped persistence, recall, correction/supersession, provenance, and bounded memory capabilities. |
 | [**Nexus Black-Box Validation Gateway**](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway) | How can outsiders challenge a closed system without receiving its private implementation? | Public challenge contracts, opaque target access, and sanitized observable evidence. |
 | [**OpenAI-compatible Router**](https://github.com/ChrisCanadian/OpenAI-compatible-router) | The application should not have to be rebuilt every time the model/provider changes. | Reusable OpenAI-compatible provider transport with short-lived BYO routes and model isolation. |
+| [**ChrisAI Runtime**](https://github.com/ChrisCanadian/chrisai-runtime) | What did the runnable architecture look like before the database and later Nexus systems? | Evidence-constrained historical reconstruction of the flat-file, pre-SSR runtime. |
 
 These repositories are related by engineering lineage and design philosophy. They are **not** intended to be assembled into a public copy of Nexus Synapse.
 

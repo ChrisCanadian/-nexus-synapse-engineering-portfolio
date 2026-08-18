@@ -118,7 +118,42 @@ evidence_class: TESTED / INTEGRATION-CANDIDATE
 
 **Supports:** the public challenge/transport stack is released and tested at v0.2, and the private Nexus validation-target candidate has separate isolated CI evidence.
 
-**Does not support:** that deployed Nexus has passed the challenge suite, that a production-facing synthetic campaign has been retained, that model-swap parity is established across deployed Nexus, or that an independent third party has certified the private runtime.
+**Does not support:** that deployed Nexus has passed the challenge suite, that a production-facing synthetic campaign had been retained as of this August 17 receipt, that model-swap parity is established across deployed Nexus, or that an independent third party has certified the private runtime.
+
+**Subsequent status:** Receipt 006 records the August 18 deployed-target campaign. Its fixed-invariant result failed.
+
+---
+
+## Receipt 006 — August 18 deployed-target fixed-invariant campaign
+
+```text
+receipt_id: BLACKBOX-DEPLOYED-TARGET-2026-08-18
+target: existing Nexus deployment through private validation-target integration
+mode:
+  - deterministic fixed-invariant reproduction
+  - separate unseen challenge
+fixed_invariant_result: FAIL
+passing_mechanism_checks:
+  - deterministic, distinct, correctly tagged session mappings
+  - six of six persistence barriers observed
+  - expected interactions and summaries existed before the following turn
+failed_invariants:
+  - cross-conversation continuity
+  - correction persistence
+separate_unseen_challenge: PASS
+artifacts_retained_privately:
+  - name: nexus-failed-invariants-reproduction-20260818.json
+    sha256: 1971125c40f8588d63c50533fffb59538ac19646f35444c25db9a9a2dda4e455
+  - name: nexus-failed-invariants-root-cause-20260818.md
+    sha256: cc9f8c10e6d080f151e0e3f8e31556921a048d9c50bd11b4f6c96bac48ea4da1
+evidence_class: TESTED / DEPLOYED-TARGET / FAILED-INVARIANTS
+```
+
+**Root-cause finding:** cross-conversation wording invoked `keyword_memory_search`; the validation tool allowlist blocked that tool, and the unavailable tool result outranked populated all-session CAG. Correction persistence failed because extractive summarization retained the obsolete statement but dropped the replacement marker. The unseen case avoided the blocked tool path and placed its replacement in the first sentence, so it passed through CAG.
+
+**Supports:** the validation path reached the existing deployment; mappings and persistence timing were deterministic; the two fixed-invariant failures were reproducible; the separate unseen case exercised the evaluator route and all-session CAG behavior.
+
+**Does not support:** that the fixed suite passed, that deployed Nexus satisfies cross-conversation continuity or correction persistence, that the unseen pass overrides the fixed failures, controlled model-swap parity, or independent certification.
 
 ---
 
