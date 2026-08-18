@@ -1,5 +1,5 @@
 {
-  "portfolio_version": "0.2",
+  "portfolio_version": "0.3",
   "generated_from_public_safe_material": true,
   "evidence_states": {
     "IMPLEMENTED": "Source code and call-site evidence exist; not necessarily deployed.",
@@ -26,6 +26,16 @@
       "sources": [
         "docs/NEXUS_TO_CONVENTIONAL_SYSTEMS_MAP.md",
         "docs/GLOSSARY.md"
+      ]
+    },
+    {
+      "id": "portfolio.attribution_operation",
+      "claim": "The Nexus public provenance operation was formalized locally with Moon Source's Credits & Attribution Ops Protocol as reference/inspiration, without claiming Moon Source authorship of pre-existing Nexus architecture or code.",
+      "evidence_state": "DOCUMENTED",
+      "claim_ceiling": "Documentation/governance-practice lineage only; no endorsement, partnership, shared ownership, architectural derivation, reuse permission, or external validation is implied.",
+      "sources": [
+        "CREDITS_AND_ATTRIBUTION.md",
+        "https://github.com/luahelenammc/Moon-Source/blob/main/docs/CREDITS_ATTRIBUTION_OPS.md"
       ]
     },
     {
@@ -69,7 +79,7 @@
       "id": "validation.blackbox_gateway",
       "claim": "Nexus Black-Box Validation Gateway v0.2 is a standalone public challenge surface for opaque targets with BYO OpenAI-compatible inference handoff, public artifact submission, evaluator-authored challenge contracts, the nexus-blackbox-core-v1 suite, router-use verification, and sanitized evidence envelopes.",
       "evidence_state": "TESTED",
-      "claim_ceiling": "Public gateway behavior only; not evidence that deployed Nexus has passed those challenges until a retained private-target campaign is executed.",
+      "claim_ceiling": "Public gateway behavior and a failed August 18 deployed-target campaign only; not evidence that deployed Nexus passed the fixed invariants or any broader validation.",
       "sources": [
         "https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway",
         "case-studies/blackbox-validation-and-byo-router.md",
@@ -89,10 +99,32 @@
       ]
     },
     {
-      "id": "validation.private_target_candidate",
-      "claim": "A private Nexus validation-target integration candidate has been implemented and exercised by isolated integration CI against the black-box contract.",
+      "id": "chrisai.historical_reconstruction",
+      "claim": "ChrisAI Runtime is a historically grounded executable reconstruction of the flat-file, pre-database, pre-SSR runtime lineage that preceded Nexus Synapse.",
       "evidence_state": "TESTED",
-      "claim_ceiling": "Integration-candidate evidence only; no retained deployed-target campaign, challenge-suite pass, model-swap parity result, or independent certification is claimed.",
+      "claim_ceiling": "Historical reconstruction only; not a byte-for-byte original checkout, not proof that every reconstructed line existed verbatim, and not evidence of modern or deployed Nexus internals.",
+      "sources": [
+        "https://github.com/ChrisCanadian/chrisai-runtime",
+        "case-studies/chrisai-runtime.md",
+        "docs/REPOSITORY_MAP.md"
+      ]
+    },
+    {
+      "id": "validation.private_target_candidate",
+      "claim": "A private Nexus validation-target integration has isolated CI evidence and was exercised against the existing deployment in a retained August 18, 2026 campaign.",
+      "evidence_state": "TESTED",
+      "claim_ceiling": "The fixed-invariant campaign failed. Integration reachability, passing persistence barriers, and a separate unseen challenge pass do not establish suite success, model-swap parity, or independent certification.",
+      "sources": [
+        "case-studies/blackbox-validation-and-byo-router.md",
+        "docs/PRODUCTION_EVIDENCE_STATUS.md",
+        "evidence/SANITIZED_EVIDENCE_RECEIPTS.md"
+      ]
+    },
+    {
+      "id": "validation.deployed_target_2026_08_18",
+      "claim": "The retained August 18, 2026 deployed-target campaign observed deterministic session mapping and six persistence barriers, but cross-conversation continuity and correction persistence failed; a separate unseen challenge passed through all-session CAG behavior.",
+      "evidence_state": "TESTED",
+      "claim_ceiling": "FAILED fixed-invariant result. The separate unseen pass and mechanism-level subchecks must not be reported as a deployed Nexus validation pass.",
       "sources": [
         "case-studies/blackbox-validation-and-byo-router.md",
         "docs/PRODUCTION_EVIDENCE_STATUS.md",

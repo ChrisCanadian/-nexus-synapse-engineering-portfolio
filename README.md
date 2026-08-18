@@ -109,9 +109,9 @@ Start with the **[Visual Gallery](docs/NEXUS_VISUAL_GALLERY.md)**.
 
 ---
 
-## Six public repositories
+## Seven public repositories
 
-Nexus Synapse itself remains private. These six repositories expose bounded, inspectable responsibilities and validation surfaces from the larger body of work.
+Nexus Synapse itself remains private. These seven repositories expose bounded, inspectable responsibilities, validation surfaces, and one historical reconstruction from the larger body of work.
 
 | Repository | In plain English | Engineering view |
 |---|---|---|
@@ -121,12 +121,13 @@ Nexus Synapse itself remains private. These six repositories expose bounded, ins
 | [**Nexus Memory Kernel**](https://github.com/ChrisCanadian/Nexus-Memory-Kernel) | Useful memory needs scope, corrections, history, and provenance — not just "remember everything." | Scoped persistence → recall → correction/supersession → provenance → bounded memory capabilities. |
 | [**Nexus Black-Box Validation Gateway**](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway) | Let outsiders challenge a closed runtime without giving them the private runtime. | Public challenge contracts → opaque target → sanitized observable evidence. |
 | [**OpenAI-compatible Router**](https://github.com/ChrisCanadian/OpenAI-compatible-router) | Change or supply the model/provider without rebuilding the application around it. | Reusable OpenAI-compatible BYO transport, model locks, streaming, tools pass-through, provider-safety controls, and usage readback. |
+| [**ChrisAI Runtime**](https://github.com/ChrisCanadian/chrisai-runtime) | Run a historically grounded reconstruction of the flat-file runtime that preceded Nexus. | Evidence-constrained pre-database, pre-SSR reconstruction; not a modern Nexus extraction or byte-for-byte archive. |
 
-These six repositories are related by lineage, validation strategy, and design philosophy. They are **not public modules intended to be assembled into a copy of Nexus Synapse**.
+These seven repositories are related by lineage, validation strategy, and design philosophy. They are **not public modules intended to be assembled into a copy of Nexus Synapse**.
 
 For formal purpose/evidence/claim-ceiling language, see **[Public Repository and Artifact Map](docs/REPOSITORY_MAP.md)**.
 
-Current validation status: the public Gateway and Router are released and tested at v0.2, and a private Nexus validation-target integration candidate has isolated test/CI evidence. A retained deployed-target challenge campaign has **not** yet been recorded, so the stronger runtime-validation claim remains deliberately withheld.
+Current validation status: the public Gateway and Router are released and tested at v0.2. A retained August 18, 2026 campaign against the existing Nexus deployment completed, but the fixed-invariant result **failed**: deterministic session mapping and all six persistence barriers were observed, while cross-conversation continuity and correction persistence failed. A separate unseen challenge passed. Those partial results do not convert the campaign into a pass, so no deployed-Nexus validation-pass claim is made.
 
 ---
 
@@ -137,7 +138,7 @@ The public Nexus work is intentionally split by purpose. These surfaces are rela
 | Surface | What belongs there | Why it exists |
 |---|---|---|
 | **This engineering portfolio** | Current public-safe architecture, terminology translation, evidence status, case studies, visual orientation, and the canonical Markdown technical reference | Version-controlled engineering front door and public claim/evidence map |
-| **Six public GitHub repositories** | Executable bounded artifacts and validation/infrastructure surfaces | Let specific responsibilities be inspected and tested without publishing the private runtime |
+| **Seven public GitHub repositories** | Executable bounded artifacts, validation/infrastructure surfaces, and a historical reconstruction | Let specific responsibilities and historical lineage be inspected without publishing the private runtime |
 | **Nexus Synapse Research Library (Google Sites)** | Long-form research, project history, explanatory material, visuals, and reader-friendly presentation copies | Research/presentation layer; it does **not** supersede the version-controlled engineering claims here |
 | **`docs/reference/NEXUS_PUBLIC_TECHNICAL_REFERENCE_v1_1.md`** | Current public-safe technical reference | Canonical, diffable source for the technical reference |
 | **Rendered PDF / Drive technical reference** | Rendered export of the canonical Markdown | Distribution convenience; follows the repository source rather than replacing it |
@@ -228,6 +229,8 @@ The newer black-box validation work adds a second pattern: expose the **challeng
 The Memory Kernel has its own portfolio case study: **[Nexus Memory Kernel](case-studies/memory-kernel.md)**.
 
 The black-box validation strategy and reusable model transport are documented together here: **[Black-Box Validation Gateway + BYO Model Router](case-studies/blackbox-validation-and-byo-router.md)**.
+
+The historical reconstruction class and its evidence ceiling are documented here: **[ChrisAI Runtime — Historical Reconstruction](case-studies/chrisai-runtime.md)**.
 
 ---
 
@@ -372,9 +375,10 @@ More: [`ABOUT_CHRIS.md`](ABOUT_CHRIS.md)
 6. [`docs/ARCHITECTURAL_EVOLUTION.md`](docs/ARCHITECTURAL_EVOLUTION.md)
 7. [`docs/VERIFICATION_AND_EVIDENCE.md`](docs/VERIFICATION_AND_EVIDENCE.md)
 8. [`docs/REPOSITORY_MAP.md`](docs/REPOSITORY_MAP.md)
-9. [`case-studies/`](case-studies/) — including the [Memory Kernel case study](case-studies/memory-kernel.md) and [Black-Box Validation + BYO Router case study](case-studies/blackbox-validation-and-byo-router.md)
-10. [`docs/GLOSSARY.md`](docs/GLOSSARY.md)
-11. [`evidence/claims-and-evidence.json`](evidence/claims-and-evidence.json)
+9. [`case-studies/`](case-studies/) — including the [Memory Kernel case study](case-studies/memory-kernel.md), [Black-Box Validation + BYO Router case study](case-studies/blackbox-validation-and-byo-router.md), and [ChrisAI Runtime case study](case-studies/chrisai-runtime.md)
+10. [`CREDITS_AND_ATTRIBUTION.md`](CREDITS_AND_ATTRIBUTION.md) — authorship, provenance operations, permission boundaries, and Moon Source reference lineage
+11. [`docs/GLOSSARY.md`](docs/GLOSSARY.md)
+12. [`evidence/claims-and-evidence.json`](evidence/claims-and-evidence.json)
 
 ---
 
@@ -386,9 +390,9 @@ This portfolio does **not** claim:
 - that every historical Nexus subsystem is still active;
 - that every implemented subsystem is fully tested;
 - independent certification of the private runtime;
-- that the current black-box stack has already produced a retained deployed-Nexus challenge campaign;
+- that the retained August 18, 2026 deployed-target campaign passed the fixed-invariant suite;
 - that isolated V5 reconstruction work is automatically the accepted production path;
-- that the public Proof Runtime, Memory Kernel, Acceptance Rig, Validation Gateway, or Router reproduces the private parent system;
+- that the public Proof Runtime, Memory Kernel, Acceptance Rig, Validation Gateway, Router, or ChrisAI reconstruction reproduces the private parent system;
 - that public artifacts are complete representations of Nexus Synapse;
 - that receipt/hash verification establishes semantic truth;
 - that Nexus invented memory, RAG, tool use, agent frameworks, multi-agent debate, authorization middleware, background workers, behavioral configuration, context engineering, or OpenAI-compatible routing;
@@ -402,7 +406,7 @@ The point is narrower:
 
 ## Research and public artifacts
 
-### Six public repositories
+### Seven public repositories
 
 - [Nexus Proof Runtime](https://github.com/ChrisCanadian/nexus-proof-runtime)
 - [Live Runtime Acceptance Rig](https://github.com/ChrisCanadian/Live-Runtime-Acceptance-Rig)
@@ -410,12 +414,14 @@ The point is narrower:
 - [Nexus Memory Kernel](https://github.com/ChrisCanadian/Nexus-Memory-Kernel)
 - [Nexus Black-Box Validation Gateway](https://github.com/ChrisCanadian/nexus-blackbox-validation-gateway)
 - [OpenAI-compatible Router](https://github.com/ChrisCanadian/OpenAI-compatible-router)
+- [ChrisAI Runtime](https://github.com/ChrisCanadian/chrisai-runtime)
 
 ### Supporting public material
 
 - [Nexus Synapse Research Library](https://sites.google.com/view/nexus-synapse-research-library/home)
 - [Historical SSR gist](https://gist.github.com/ChrisCanadian/7e9891eeadea9dc4cdfc2af7a4367752)
 - [Christopher Campbell on GitHub](https://github.com/ChrisCanadian)
+- [Credits and Attribution](CREDITS_AND_ATTRIBUTION.md)
 
 ---
 

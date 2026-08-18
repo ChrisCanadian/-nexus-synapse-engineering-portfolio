@@ -43,11 +43,13 @@ These are useful because the claim boundary is explicit. They are **not fragment
 
 The v0.2 validation gateway now includes an evaluator-authored challenge schema, the built-in `nexus-blackbox-core-v1` suite, a metadata firewall, cleanup/revocation support, and independent observation of router usage. The v0.2 router adds request-scoped route credentials and secret-free usage readback while preserving route isolation, model locking, streaming, tool pass-through, SSRF protection, and secret-safe failure handling.
 
-The private parent repository also now contains a dedicated validation-target integration candidate with isolated tests and CI. That is meaningful implementation/integration evidence, but it is still **not** deployed-target black-box evidence until a retained campaign is executed against the private Nexus target.
+The private parent repository contains a dedicated validation-target integration with isolated tests and CI. A retained campaign was then executed against the existing deployment on August 18, 2026. The fixed-invariant outcome **failed** even though deterministic session mapping and all six persistence barriers were observed. Cross-conversation continuity failed when `keyword_memory_search` was blocked by the validation tool allowlist and its unavailable result outranked the populated all-session CAG. Correction persistence failed when extractive summarization retained the obsolete marker but dropped its replacement. A separate unseen challenge passed through all-session CAG when its wording avoided the blocked tool path and placed the replacement in the first sentence.
+
+These mechanism-level observations and the separate unseen pass are useful diagnostic evidence. They do not convert the fixed-invariant campaign into a pass.
 
 ### D. Historical / reconstruction / design evidence
 
-Older source, retained benchmarks, isolated V5 work, architecture documents, and lineage reconstruction help establish implementation history and architectural intent.
+Older source, the public ChrisAI historical reconstruction, retained benchmarks, isolated V5 work, architecture documents, and lineage reconstruction help establish implementation history and architectural intent.
 
 They are valuable, but weaker for claims about **current deployed behavior** unless a newer production-facing source confirms the same path.
 
@@ -59,7 +61,7 @@ They are valuable, but weaker for claims about **current deployed behavior** unl
 | SSR V2 context construction | Aug 14 deployed-code/state inspection + Jul 11 isolated execution | Current and behaviorally consequential |
 | Profile, gauges, mode, user rules, learned preferences | Aug 14 production-state inspection | Current / populated |
 | Relational interaction + summary memory | Aug 14 production-state inspection | Current / populated |
-| Session-local continuity / CAG | Aug 14 production-state inspection | Current, with observed broader-summary fallback in the latest audited session |
+| Session-local continuity / CAG | Aug 14 production-state inspection + Aug 18 deployed-target challenge | Current, with all-session fallback observed; fixed cross-conversation continuity failed when a blocked memory-tool result outranked populated CAG |
 | Semantic/vector conversation memory | Aug 14 production-state inspection | Implemented but stale/reference-degraded in the audited state |
 | Request analysis | Aug 14 deployed-code inspection | Current via external inference or static fallback; historical local NLP path not active |
 | Focus + cognitive-node scoring | Aug 14 deployed-code inspection | Current; node-persistence hooks disconnected |
@@ -67,16 +69,16 @@ They are valuable, but weaker for claims about **current deployed behavior** unl
 | Reflections | Aug 14 production-state inspection | Current / populated |
 | Self-model projection | Aug 14 deployed-code/state inspection | Omitted in the audited current path |
 | Tool registry / authority mediation | Aug 14 deployed-code/state inspection + Jul 11 memory-tool execution | Current; model proposal remains separate from runtime authority |
-| Interaction / summary persistence | Aug 14 deployed-code/state inspection | Current |
+| Interaction / summary persistence | Aug 14 deployed-code/state inspection + Aug 18 deployed-target challenge | Session mappings and six persistence barriers passed; correction persistence still failed because extractive summarization dropped the replacement marker |
 | Learned-preference adaptation | Aug 14 production-state inspection | Current and later consumed by SSR V2 |
 | Direct-feedback downstream effect | Aug 14 inspection | Persisted, but next-turn effect through the active SSR path not proven |
 | Goals / curiosity / injectable background cognition | Aug 14 inspection | Empty or disconnected in the audited state |
 | Thinker | Aug 14 deployed-code inspection | Not proven in the current main deployed path |
-| Public black-box validation surface | Black-Box Validation Gateway v0.2 + CI | Implemented/tested as a standalone gateway with core suite + evaluator-authored challenge contract; deployed Nexus target not yet exercised |
-| Generic BYO model transport | OpenAI-compatible Router v0.2 + CI | Implemented/tested standalone; provider-use readback exists; no retained deployed Nexus campaign yet |
-| Private black-box target integration | Private validation-target candidate + isolated CI | Implemented and isolated-tested as a deployment candidate; not yet retained as deployed-target evidence |
+| Public black-box validation surface | Black-Box Validation Gateway v0.2 + CI + Aug 18 campaign | Gateway remains implemented/tested standalone; the retained deployed-target fixed-invariant campaign failed, with a separate unseen challenge pass recorded only as a narrower result |
+| Generic BYO model transport | OpenAI-compatible Router v0.2 + CI + Aug 18 provider observation | Implemented/tested standalone; provider counts advanced on unseen turns, but observed transport use does not establish model-swap parity or a Nexus validation pass |
+| Private black-box target integration | Private integration CI + Aug 18 deployed-target campaign | Integration exercised against the existing deployment; fixed invariants failed, so the result is diagnostic deployed-target evidence, not acceptance |
 | Controlled primary-model swap parity in Nexus | Public evidence set | Not demonstrated against the deployed private runtime |
-| Independent third-party black-box validation of Nexus | Public evidence set | Challenge infrastructure exists; genuinely independent private-runtime campaign not yet demonstrated |
+| Independent third-party black-box validation of Nexus | Public evidence set | Operator-run deployed-target evidence exists; genuinely independent third-party validation is not demonstrated |
 | Independent third-party replication | Public evidence set | Not demonstrated |
 
 ## What is actually strongest today?
@@ -87,9 +89,9 @@ It is narrower:
 
 > **The actual deployed implementation and state have been inspected deeply enough to distinguish current, degraded, disconnected, omitted, and conditional responsibilities; selected runtime behaviors have separate isolated execution evidence; bounded public projects independently exercise narrower architectural claims.**
 
-The newer black-box stack is now stronger than a standalone gateway mock: the public gateway and router are released/tested at v0.2, and a private validation-target integration candidate has isolated test/CI evidence. But the claim only becomes deployed-target black-box evidence when a retained campaign actually traverses that private target and records sanitized results.
+The newer black-box stack is now stronger than a standalone gateway mock: the public gateway and router are released/tested at v0.2, the private target integration has isolated CI evidence, and a retained August 18 campaign traversed the existing deployment. That campaign produced useful root-cause evidence but **did not pass** its fixed invariants. The separate unseen challenge pass is recorded without being promoted into suite success.
 
-That is a stronger position than a diagram or self-description, and a weaker claim than full independent live-production certification.
+That is stronger evidence than a diagram or self-description and weaker than acceptance, model-swap parity, independent validation, or live-production certification.
 
 ## Why the raw terminal dump is not the publication artifact
 
